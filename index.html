@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All About SAT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700;900&family=DM+Sans:wght=300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --navy: #0d1b2a;
@@ -137,17 +137,6 @@
       height: auto;
       border-radius: 8px;
       display: block;
-    }
-
-    .photo-caption {
-      position: absolute;
-      bottom: -40px;
-      left: 0; right: 0;
-      text-align: center;
-      color: rgba(255,255,255,0.55);
-      font-size: 0.85rem;
-      font-weight: 300;
-      letter-spacing: 0.04em;
     }
 
     /* ── STATS BAR ── */
@@ -288,7 +277,6 @@
       text-align: center;
     }
 
-    /* ── SUCCESS ── */
     #form-success {
       display: none;
       background: rgba(201,151,58,0.15);
@@ -310,7 +298,6 @@
       font-size: 0.82rem;
     }
     footer a { color: var(--gold); text-decoration: none; }
-
 
     /* ── STUDY SECTION ── */
     .study { background: var(--white); }
@@ -457,16 +444,6 @@
 
     @media (max-width: 900px) {
       .q-card { padding: 22px 18px; }
-    }
-
-    /* ── ANIMATION ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-photo { padding: 40px; justify-content: center; }
       .photo-frame { width: 220px; }
@@ -478,10 +455,16 @@
       .stats { padding: 24px 20px; }
       .hero-text { padding: 60px 28px 40px; }
     }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
+<!-- ── HERO ── -->
 <header class="hero">
   <div class="hero-text">
     <span class="badge">100% Online SAT Tutoring</span>
@@ -509,6 +492,7 @@
   </div>
 </header>
 
+<!-- ── STATS BAR ── -->
 <div class="stats">
   <div class="stat">
     <div class="stat-num">100%</div>
@@ -524,6 +508,7 @@
   </div>
 </div>
 
+<!-- ── ABOUT SECTION ── -->
 <section id="about" class="about">
   <div class="about-grid">
     <div>
@@ -542,6 +527,7 @@
   </div>
 </section>
 
+<!-- ── SERVICES SECTION ── -->
 <section id="services" class="services">
   <div class="section-label">What We Offer</div>
   <h2 class="section-title">Comprehensive Prep Services</h2>
@@ -564,6 +550,7 @@
   </div>
 </section>
 
+<!-- ── INTERACTIVE STUDY SECTION (ALL 5 PROBLEMS) ── -->
 <section id="study" class="study">
   <div class="section-label">Interactive Practice</div>
   <h2 class="section-title">Try Real Sample Questions</h2>
@@ -574,12 +561,14 @@
     <button class="tab-btn" onclick="switchTab('math')">Mathematics</button>
   </div>
 
+  <!-- Reading Panel -->
   <div id="reading-panel" class="tab-panel active">
+    <!-- Question 1 -->
     <div class="q-card" data-correct="B">
       <div class="q-number">Question 1</div>
       <div class="q-skill">Information and Ideas / Command of Evidence</div>
       <div class="q-passage">
-        In many high-altitude ecosystems, soil nutrient availability acts as a strict constraint on plant biomass. Ecologist Dr. Elena Vance hypothesized that specific subalpine cushion plants actively alter their immediate substrate chemistry, creating localized microenvironments that facilitate the survival of neighboring, less-hardy flora. 
+        In many high-altitude ecosystems, soil nutrient availability acts as a strict constraint on plant biomass. Ecologist Dr. Elena Vance hypothesized that specific subalpine cushion plants actively alter their immediate substrate chemistry, creating localized microenvironments that facilitate the survival of neighboring, less-hardy flora.
       </div>
       <div class="q-text">Which finding, if true, would most directly support Dr. Vance’s hypothesis?</div>
       <ul class="q-options">
@@ -592,31 +581,88 @@
         <strong>Correct Answer: B.</strong> Dr. Vance's hypothesis hinges entirely on cushion plants actively changing their <em>substrate chemistry</em> to help nearby plants. Showing that soil directly underneath these plants contains higher bioavailable nitrogen (a nutrient) explicitly confirms this chemical modification.
       </div>
     </div>
+
+    <!-- Question 2 -->
+    <div class="q-card" data-correct="A">
+      <div class="q-number">Question 2</div>
+      <div class="q-skill">Craft and Structure / Words in Context</div>
+      <div class="q-passage">
+        The corporate governance committee insisted that the executive's record, far from being completely unblemished, was actually marked by strategic omissions. Yet, because those omissions never technically violated local statutes, the final compliance report described his tenure as entirely _______.
+      </div>
+      <div class="q-text">Which choice completes the text with the most logical and precise word?</div>
+      <ul class="q-options">
+        <li><button onclick="checkAnswer(this, 'A')">A) licit</button></li>
+        <li><button onclick="checkAnswer(this, 'B')">B) peerless</button></li>
+        <li><button onclick="checkAnswer(this, 'C')">C) anomalous</button></li>
+        <li><button onclick="checkAnswer(this, 'D')">D) explicit</button></li>
+      </ul>
+      <div class="q-explanation">
+        <strong>Correct Answer: A.</strong> The sentence establishes a contrast using "Yet." Even though there were omissions, they "never technically violated local statutes." Therefore, the report must describe his tenure as legal or permitted by law. "Licit" directly means lawful or legal.
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="q-card" data-correct="D">
+      <div class="q-number">Question 3</div>
+      <div class="q-skill">Expression of Ideas / Transitions</div>
+      <div class="q-passage">
+        Art historian Clara Simmons argues that mid-twentieth-century muralists were driven primarily by public accessibility, placing large-scale works in subways and public squares. _______, contemporary street artists often utilize identical urban surfaces but are frequently motivated by a desire to subvert commercial ownership of public visual spaces.
+      </div>
+      <div class="q-text">Which choice completes the text with the most logical transition?</div>
+      <ul class="q-options">
+        <li><button onclick="checkAnswer(this, 'A')">A) As a result</button></li>
+        <li><button onclick="checkAnswer(this, 'B')">B) In addition</button></li>
+        <li><button onclick="checkAnswer(this, 'C')">C) For instance</button></li>
+        <li><button onclick="checkAnswer(this, 'D')">D) By contrast</button></li>
+      </ul>
+      <div class="q-explanation">
+        <strong>Correct Answer: D.</strong> The passage compares two eras of artists using the same spaces but for different core reasons: mid-century muralists wanted "public accessibility," while contemporary street artists want to "subvert commercial ownership." This is a clear contrast, making "By contrast" the correct fit.
+      </div>
+    </div>
   </div>
 
+  <!-- Math Panel -->
   <div id="math-panel" class="tab-panel">
+    <!-- Question 4 -->
     <div class="q-card" data-correct="C">
-      <div class="q-number">Question 1</div>
+      <div class="q-number">Question 4</div>
       <div class="q-skill">Advanced Math / Nonlinear Functions</div>
       <div class="q-text">A bacterial population triples in size every 4 hours. If the initial population size at t = 0 is 150, which of the following expressions represents the total population size after t hours?</div>
       <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A')">A) P(t) = 150(3)<sup>4t</sup></button></li>
-        <li><button onclick="checkAnswer(this, 'B')">B) P(t) = 150(4)<sup>t/3</sup></button></li>
-        <li><button onclick="checkAnswer(this, 'C')">C) P(t) = 150(3)<sup>t/4</sup></button></li>
-        <li><button onclick="checkAnswer(this, 'D')">D) P(t) = 4(3)<sup>150t</sup></button></li>
+        <li><button onclick="checkAnswer(this, 'A')">A) P(t) = 150(3)^(4t)</button></li>
+        <li><button onclick="checkAnswer(this, 'B')">B) P(t) = 150(4)^(t/3)</button></li>
+        <li><button onclick="checkAnswer(this, 'C')">C) P(t) = 150(3)^(t/4)</button></li>
+        <li><button onclick="checkAnswer(this, 'D')">D) P(t) = 4(3)^(150t)</button></li>
       </ul>
       <div class="q-explanation">
-        <strong>Correct Answer: C.</strong> Exponential growth is modeled by the format P = I(R)<sup>t/p</sup>, where I is the initial value (150), R is the rate multiplier (3), and p is the interval period (4 hours). Therefore, the correct exponent tracking the total hours step-by-step is t/4.
+        <strong>Correct Answer: C.</strong> Exponential growth is modeled by the format P = I(R)^(t/p), where I is the initial value (150), R is the rate multiplier (3), and p is the interval period (4 hours). Therefore, the correct exponent tracking the total hours step-by-step is t/4.
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="q-card" data-correct="B">
+      <div class="q-number">Question 5</div>
+      <div class="q-skill">Algebra / Linear Equations</div>
+      <div class="q-text">A local catering company charges a flat setup fee of 85 dollars plus an additional 24 dollars per guest. If a client's total bill before tax was 1165 dollars, how many guests attended the event?</div>
+      <ul class="q-options">
+        <li><button onclick="checkAnswer(this, 'A')">A) 41</button></li>
+        <li><button onclick="checkAnswer(this, 'B')">B) 45</button></li>
+        <li><button onclick="checkAnswer(this, 'C')">C) 48</button></li>
+        <li><button onclick="checkAnswer(this, 'D')">D) 52</button></li>
+      </ul>
+      <div class="q-explanation">
+        <strong>Correct Answer: B.</strong> Set up the linear equation: 24g + 85 = 1165. Subtracting 85 from both sides gives 24g = 1080. Dividing both sides by 24 gives g = 45 guests.
       </div>
     </div>
   </div>
 
   <div class="study-score">
-    <span>Your Score: <span id="score-text">0</span> / 2</span>
+    <span>Your Score: <span id="score-text">0</span> / 5</span>
     <div class="score-bar"><div id="score-fill" class="score-fill"></div></div>
   </div>
 </section>
 
+<!-- ── ENROLLMENT FORM SECTION ── -->
 <section id="enroll" class="enroll">
   <div class="section-label">Get Started</div>
   <h2 class="section-title">Schedule A Free Consultation</h2>
@@ -665,13 +711,16 @@
   </div>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
   <p>&copy; 2026 All About SAT. All Rights Reserved. | Handcrafted via <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
 </footer>
 
+<!-- ── INTERACTIVE JAVASCRIPT CODE ── -->
 <script>
   let totalCorrect = 0;
   const answeredCards = new Set();
+  const totalQuestions = 5;
 
   function switchTab(tabName) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -711,21 +760,14 @@
     const explanation = card.querySelector('.q-explanation');
     if (explanation) explanation.classList.add('visible');
 
-    // Update score trackers dynamically
+    // Update dynamic score panel out of 5 items
     document.getElementById('score-text').innerText = totalCorrect;
-    const progressPercent = (totalCorrect / 2) * 100;
+    const progressPercent = (totalCorrect / totalQuestions) * 100;
     document.getElementById('score-fill').style.width = progressPercent + '%';
   }
 
   function handleFormSubmit(event) {
-    // If you are bypassing Formspree via AJAX submission, process here:
-    const form = document.getElementById('contact-form');
-    const successBox = document.getElementById('form-success');
-    
-    // For visual simulation right now:
-    // event.preventDefault(); 
-    // form.style.display = 'none';
-    // successBox.style.display = 'block';
+    // Left open for formspree natural redirection or custom AJAX overrides
   }
 </script>
 

@@ -654,3 +654,128 @@
     </div>
   </div>
 </section>
+  <section id="enroll" class="enroll">
+  <div class="section-label">Get Started</div>
+  <h2 class="section-title">Schedule A Free Consultation</h2>
+  
+  <form id="contact-form" action="https://formspree.io/f/mqeopkov" method="POST" onsubmit="handleFormSubmit(event)">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="student-name">Student Name</label>
+        <input type="text" id="student-name" name="student_name" placeholder="John Doe" required />
+      </div>
+      <div class="form-group">
+        <label for="parent-email">Email Address</label>
+        <input type="email" id="parent-email" name="email" placeholder="name@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="grade-level">Current Grade Level</label>
+        <select id="grade-level" name="grade_level" required>
+          <option value="" disabled selected>Select grade</option>
+          <option value="9">9th Grade (Freshman)</option>
+          <option value="10">10th Grade (Sophomore)</option>
+          <option value="11">11th Grade (Junior)</option>
+          <option value="12">12th Grade (Senior)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="target-date">Target Test Date</label>
+        <select id="target-date" name="target_date" required>
+          <option value="" disabled selected>Select target window</option>
+          <option value="Fall">Fall Session</option>
+          <option value="Spring">Spring Session</option>
+          <option value="Summer">Summer Intensive</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label for="message">Goals or Areas Needing Improvement</label>
+        <textarea id="message" name="message" placeholder="Tell us about your student's target score or struggles..." required></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">Submit Request</button>
+      <p class="form-note">We typically reply within 24 business hours to coordinate an introductory strategy call.</p>
+    </div>
+  </form>
+  
+  <div id="form-success">
+    🎉 Thank you! Your request has been submitted successfully. We will contact you shortly!
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 All About SAT. All Rights Reserved. | Handcrafted via <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+</footer>
+
+<script>
+  let scores = { reading: 0, math: 0 };
+  const answeredCards = new Set();
+  const totalQuestionsPerTab = 3; 
+
+  function switchTab(tabName) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+    
+    if(tabName === 'reading') {
+      document.getElementById('btn-reading').classList.add('active');
+      document.getElementById('reading-panel').classList.add('active');
+    } else {
+      document.getElementById('btn-math').classList.add('active');
+      document.getElementById('math-panel').classList.add('active');
+    }
+  }
+
+  function checkAnswer(button, choice, tab) {
+    const card = button.closest('.q-card');
+    const correctLetter = card.getAttribute('data-correct');
+    
+    if (answeredCards.has(card)) return;
+    answeredCards.add(card);
+
+    const buttons = card.querySelectorAll('.q-options button');
+    buttons.forEach(btn => btn.disabled = true);
+
+    if (choice === correctLetter) {
+      button.classList.add('correct');
+      scores[tab]++;
+    } else {
+      button.classList.add('wrong');
+      buttons.forEach(btn => {
+        if(btn.outerHTML.includes(`'${correctLetter}'`)) {
+          btn.classList.add('show-correct');
+        }
+      });
+    }
+
+    const explanation = card.querySelector('.q-explanation');
+    if (explanation) explanation.classList.add('visible');
+
+    document.getElementById(`${tab}-score-text`).innerText = scores[tab];
+    const progressPercent = (scores[tab] / totalQuestionsPerTab) * 100;
+    document.getElementById(`${tab}-score-fill`).style.width = progressPercent + '%';
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault(); 
+    const form = event.target;
+    const data = new FormData(form);
+    const successBanner = document.getElementById('form-success');
+
+    fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.style.display = 'none'; 
+        successBanner.style.display = 'block'; 
+      } else {
+        alert("Oops! There was a problem processing your submission.");
+      }
+    }).catch(error => {
+      alert("Connection error. Could not reach server.");
+    });
+  }
+</script>
+
+</body>
+</html>

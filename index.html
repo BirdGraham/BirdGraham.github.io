@@ -464,7 +464,6 @@
 </head>
 <body>
 
-<!-- ── HERO ── -->
 <header class="hero">
   <div class="hero-text">
     <span class="badge">100% Online SAT Tutoring</span>
@@ -492,7 +491,6 @@
   </div>
 </header>
 
-<!-- ── STATS BAR ── -->
 <div class="stats">
   <div class="stat">
     <div class="stat-num">100%</div>
@@ -508,7 +506,6 @@
   </div>
 </div>
 
-<!-- ── ABOUT SECTION ── -->
 <section id="about" class="about">
   <div class="about-grid">
     <div>
@@ -527,7 +524,6 @@
   </div>
 </section>
 
-<!-- ── SERVICES SECTION ── -->
 <section id="services" class="services">
   <div class="section-label">What We Offer</div>
   <h2 class="section-title">Comprehensive Prep Services</h2>
@@ -550,7 +546,6 @@
   </div>
 </section>
 
-<!-- ── INTERACTIVE STUDY SECTION (ALL 5 PROBLEMS) ── -->
 <section id="study" class="study">
   <div class="section-label">Interactive Practice</div>
   <h2 class="section-title">Try Real Sample Questions</h2>
@@ -561,9 +556,7 @@
     <button class="tab-btn" onclick="switchTab('math')">Mathematics</button>
   </div>
 
-  <!-- Reading Panel -->
   <div id="reading-panel" class="tab-panel active">
-    <!-- Question 1 -->
     <div class="q-card" data-correct="B">
       <div class="q-number">Question 1</div>
       <div class="q-skill">Information and Ideas / Command of Evidence</div>
@@ -582,7 +575,6 @@
       </div>
     </div>
 
-    <!-- Question 2 -->
     <div class="q-card" data-correct="A">
       <div class="q-number">Question 2</div>
       <div class="q-skill">Craft and Structure / Words in Context</div>
@@ -601,7 +593,6 @@
       </div>
     </div>
 
-    <!-- Question 3 -->
     <div class="q-card" data-correct="D">
       <div class="q-number">Question 3</div>
       <div class="q-skill">Expression of Ideas / Transitions</div>
@@ -616,160 +607,4 @@
         <li><button onclick="checkAnswer(this, 'D')">D) By contrast</button></li>
       </ul>
       <div class="q-explanation">
-        <strong>Correct Answer: D.</strong> The passage compares two eras of artists using the same spaces but for different core reasons: mid-century muralists wanted "public accessibility," while contemporary street artists want to "subvert commercial ownership." This is a clear contrast, making "By contrast" the correct fit.
-      </div>
-    </div>
-  </div>
-
-  <!-- Math Panel -->
-  <div id="math-panel" class="tab-panel">
-    <!-- Question 4 -->
-    <div class="q-card" data-correct="C">
-      <div class="q-number">Question 4</div>
-      <div class="q-skill">Advanced Math / Nonlinear Functions</div>
-      <div class="q-text">A bacterial population triples in size every 4 hours. If the initial population size at t = 0 is 150, which of the following expressions represents the total population size after t hours?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A')">A) P(t) = 150(3)^(4t)</button></li>
-        <li><button onclick="checkAnswer(this, 'B')">B) P(t) = 150(4)^(t/3)</button></li>
-        <li><button onclick="checkAnswer(this, 'C')">C) P(t) = 150(3)^(t/4)</button></li>
-        <li><button onclick="checkAnswer(this, 'D')">D) P(t) = 4(3)^(150t)</button></li>
-      </ul>
-      <div class="q-explanation">
-        <strong>Correct Answer: C.</strong> Exponential growth is modeled by the format P = I(R)^(t/p), where I is the initial value (150), R is the rate multiplier (3), and p is the interval period (4 hours). Therefore, the correct exponent tracking the total hours step-by-step is t/4.
-      </div>
-    </div>
-
-    <!-- Question 5 -->
-    <div class="q-card" data-correct="B">
-      <div class="q-number">Question 5</div>
-      <div class="q-skill">Algebra / Linear Equations</div>
-      <div class="q-text">A local catering company charges a flat setup fee of 85 dollars plus an additional 24 dollars per guest. If a client's total bill before tax was 1165 dollars, how many guests attended the event?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A')">A) 41</button></li>
-        <li><button onclick="checkAnswer(this, 'B')">B) 45</button></li>
-        <li><button onclick="checkAnswer(this, 'C')">C) 48</button></li>
-        <li><button onclick="checkAnswer(this, 'D')">D) 52</button></li>
-      </ul>
-      <div class="q-explanation">
-        <strong>Correct Answer: B.</strong> Set up the linear equation: 24g + 85 = 1165. Subtracting 85 from both sides gives 24g = 1080. Dividing both sides by 24 gives g = 45 guests.
-      </div>
-    </div>
-  </div>
-
-  <div class="study-score">
-    <span>Your Score: <span id="score-text">0</span> / 5</span>
-    <div class="score-bar"><div id="score-fill" class="score-fill"></div></div>
-  </div>
-</section>
-
-<!-- ── ENROLLMENT FORM SECTION ── -->
-<section id="enroll" class="enroll">
-  <div class="section-label">Get Started</div>
-  <h2 class="section-title">Schedule A Free Consultation</h2>
-  
-  <form id="contact-form" action="https://formspree.io/f/placeholder" method="POST" onsubmit="handleFormSubmit(event)">
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="student-name">Student Name</label>
-        <input type="text" id="student-name" name="student_name" placeholder="John Doe" required />
-      </div>
-      <div class="form-group">
-        <label for="parent-email">Email Address</label>
-        <input type="email" id="parent-email" name="email" placeholder="name@example.com" required />
-      </div>
-      <div class="form-group">
-        <label for="grade-level">Current Grade Level</label>
-        <select id="grade-level" name="grade_level" required>
-          <option value="" disabled selected>Select grade</option>
-          <option value="9">9th Grade (Freshman)</option>
-          <option value="10">10th Grade (Sophomore)</option>
-          <option value="11">11th Grade (Junior)</option>
-          <option value="12">12th Grade (Senior)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="target-date">Target Test Date</label>
-        <select id="target-date" name="target_date" required>
-          <option value="" disabled selected>Select target window</option>
-          <option value="Fall">Fall Session</option>
-          <option value="Spring">Spring Session</option>
-          <option value="Summer">Summer Intensive</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label for="message">Goals or Areas Needing Improvement</label>
-        <textarea id="message" name="message" placeholder="Tell us about your student's target score or struggles..." required></textarea>
-      </div>
-      
-      <button type="submit" class="submit-btn">Submit Request</button>
-      <p class="form-note">We typically reply within 24 business hours to coordinate an introductory strategy call.</p>
-    </div>
-  </form>
-  
-  <div id="form-success">
-    🎉 Thank you! Your request has been submitted successfully. We will contact you shortly!
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
-<footer>
-  <p>&copy; 2026 All About SAT. All Rights Reserved. | Handcrafted via <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
-</footer>
-
-<!-- ── INTERACTIVE JAVASCRIPT CODE ── -->
-<script>
-  let totalCorrect = 0;
-  const answeredCards = new Set();
-  const totalQuestions = 5;
-
-  function switchTab(tabName) {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-    
-    if(tabName === 'reading') {
-      document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
-      document.getElementById('reading-panel').classList.add('active');
-    } else {
-      document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
-      document.getElementById('math-panel').classList.add('active');
-    }
-  }
-
-  function checkAnswer(button, choice) {
-    const card = button.closest('.q-card');
-    const correctLetter = card.getAttribute('data-correct');
-    
-    if (answeredCards.has(card)) return;
-    answeredCards.add(card);
-
-    const buttons = card.querySelectorAll('.q-options button');
-    buttons.forEach(btn => btn.disabled = true);
-
-    if (choice === correctLetter) {
-      button.classList.add('correct');
-      totalCorrect++;
-    } else {
-      button.classList.add('wrong');
-      buttons.forEach(btn => {
-        if(btn.outerHTML.includes(`'${correctLetter}'`)) {
-          btn.classList.add('show-correct');
-        }
-      });
-    }
-
-    const explanation = card.querySelector('.q-explanation');
-    if (explanation) explanation.classList.add('visible');
-
-    // Update dynamic score panel out of 5 items
-    document.getElementById('score-text').innerText = totalCorrect;
-    const progressPercent = (totalCorrect / totalQuestions) * 100;
-    document.getElementById('score-fill').style.width = progressPercent + '%';
-  }
-
-  function handleFormSubmit(event) {
-    // Left open for formspree natural redirection or custom AJAX overrides
-  }
-</script>
-
-</body>
-</html>
+        <strong>Correct Answer: D.</strong> The passage compares two eras of artists using the same spaces but for different core reasons: mid-century muralists wanted "public accessibility," while contemporary street artists want to "subvert commercial ownership." This is a clear contrast,

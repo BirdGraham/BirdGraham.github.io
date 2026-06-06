@@ -217,86 +217,6 @@
     .service-icon { font-size: 2rem; margin-bottom: 16px; }
     .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 12px; }
     .service-card p { font-size: 0.92rem; color: #666; line-height: 1.7; }
-/* ── FORM ── */
-    .enroll { background: var(--navy); color: var(--white); }
-    .enroll .section-title { color: var(--white); }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    .form-group.full { grid-column: 1 / -1; }
-
-    label {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      font-weight: 500;
-    }
-
-    input, select, textarea {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 3px;
-      padding: 14px 16px;
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      transition: border-color 0.2s;
-      outline: none;
-    }
-    input:focus, select:focus, textarea:focus { border-color: var(--gold); }
-    select option { background: var(--navy); }
-    textarea { resize: vertical; min-height: 110px; }
-
-    .submit-btn {
-      grid-column: 1 / -1;
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      padding: 18px;
-      border-radius: 3px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-    .form-note {
-      grid-column: 1 / -1;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
-      text-align: center;
-    }
-
-    #form-success {
-      display: none;
-      background: rgba(201,151,58,0.15);
-      border: 1px solid var(--gold);
-      border-radius: 4px;
-      padding: 24px;
-      text-align: center;
-      margin-top: 20px;
-      color: var(--gold-light);
-      font-size: 1.05rem;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #070f18;
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      padding: 30px;
-      font-size: 0.82rem;
-    }
-    footer a { color: var(--gold); text-decoration: none; }
 
     /* ── STUDY SECTION ── */
     .study { background: var(--white); }
@@ -441,6 +361,87 @@
       width: 0%;
     }
 
+    /* ── FORM ── */
+    .enroll { background: var(--navy); color: var(--white); }
+    .enroll .section-title { color: var(--white); }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 3px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+    select option { background: var(--navy); }
+    textarea { resize: vertical; min-height: 110px; }
+
+    .submit-btn {
+      grid-column: 1 / -1;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 18px;
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .form-note {
+      grid-column: 1 / -1;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    #form-success {
+      display: none;
+      background: rgba(201,151,58,0.15);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--gold-light);
+      font-size: 1.05rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070f18;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 30px;
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
     @media (max-width: 900px) {
       .q-card { padding: 22px 18px; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -489,7 +490,6 @@
     </div>
   </div>
 </header>
-
 <div class="stats">
   <div class="stat">
     <div class="stat-num">100%</div>
@@ -537,7 +537,8 @@
       <h3>Digital SAT Math</h3>
       <p>Targeted training across Algebra, Advanced Math, Problem Solving, Data Analysis, and Geometry, utilizing efficient graphing tools and custom shortcuts.</p>
     </div>
-    <div class="service-card">
+    <div class="
+      <div class="service-card">
       <div class="service-icon">🎯</div>
       <h3>Testing Strategy</h3>
       <p>Learn strategic elimination tactics, precise pacing parameters, and anxiety-reduction workflows designed to maximize scoring efficiency under tight clocks.</p>
@@ -545,6 +546,7 @@
   </div>
 </section>
 
+<!-- ── INTERACTIVE STUDY SECTION ── -->
 <section id="study" class="study">
   <div class="section-label">Interactive Practice</div>
   <h2 class="section-title">Try Real Sample Questions</h2>
@@ -554,7 +556,9 @@
     <button id="btn-reading" class="tab-btn active" onclick="switchTab('reading')">Reading & Writing</button>
     <button id="btn-math" class="tab-btn" onclick="switchTab('math')">Mathematics</button>
   </div>
+  <!-- Reading Panel (Exactly 3 Questions) -->
   <div id="reading-panel" class="tab-panel active">
+    <!-- Question 1 -->
     <div class="q-card" data-correct="B">
       <div class="q-number">Question 1</div>
       <div class="q-skill">Information and Ideas / Command of Evidence</div>
@@ -566,9 +570,10 @@
         <li><button onclick="checkAnswer(this, 'C', 'reading')">C) Neighboring flora species located far away from cushion plants display an increased reliance on deep taproot structures to secure water reserves.</button></li>
         <li><button onclick="checkAnswer(this, 'D', 'reading')">D) Genetic analysis shows no significant evolutionary divergence between subalpine cushion plants and low-altitude variants.</button></li>
       </ul>
-      <div class="q-explanation"><strong>Correct Answer: B.</strong> Dr. Vance's hypothesis hinges entirely on cushion plants actively changing their substrate chemistry to help nearby plants. Showing that soil directly underneath these plants contains higher bioavailable nitrogen (a nutrient) explicitly confirms this chemical modification.</div>
+      <div class="q-explanation"><strong>Correct Answer: B.</strong> Dr. Vance's hypothesis hinges entirely on cushion plants actively changing their substrate chemistry to help nearby plants. Showing that soil directly underneath these plants contains higher bioavailable nitrogen explicitly confirms this chemical modification.</div>
     </div>
 
+    <!-- Question 2 -->
     <div class="q-card" data-correct="A">
       <div class="q-number">Question 2</div>
       <div class="q-skill">Craft and Structure / Words in Context</div>
@@ -580,9 +585,10 @@
         <li><button onclick="checkAnswer(this, 'C', 'reading')">C) anomalous</button></li>
         <li><button onclick="checkAnswer(this, 'D', 'reading')">D) explicit</button></li>
       </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> The sentence establishes a contrast using "Yet." Even though there were omissions, they "never technically violated local statutes." Therefore, the report must describe his tenure as legal or permitted by law. "Licit" directly means lawful or legal.</div>
+      <div class="q-explanation"><strong>Correct Answer: A.</strong> The sentence establishes a contrast using "Yet." Even though there were omissions, they "never technically violated local statutes." Therefore, the report must describe his tenure as legal. "Licit" directly means lawful or legal.</div>
     </div>
 
+    <!-- Question 3 -->
     <div class="q-card" data-correct="D">
       <div class="q-number">Question 3</div>
       <div class="q-skill">Expression of Ideas / Transitions</div>
@@ -594,109 +600,11 @@
         <li><button onclick="checkAnswer(this, 'C', 'reading')">C) For instance</button></li>
         <li><button onclick="checkAnswer(this, 'D', 'reading')">D) By contrast</button></li>
       </ul>
-      <div class="q-explanation"><strong>Correct Answer: D.</strong> The passage compares two eras of artists using the same spaces but for different core reasons: mid-century muralists wanted "public accessibility," while contemporary street artists want to "subvert commercial ownership." This is a clear contrast, making "By contrast" the correct fit.</div>
-    </div>
-
-    <div class="q-card" data-correct="C">
-      <div class="q-number">Question 4</div>
-      <div class="q-skill">Information and Ideas / Central Ideas and Details</div>
-      <div class="q-passage">To reconstruct past climate variations, paleoclimatologists analyze stable isotope profiles preserved within cave speleothems. A common assumption has been that calcite crystallization occurs in isotopic equilibrium with dripping water. However, meteorologist Marcus Thorne demonstrated that rapid kinetics and localized kinetic evaporation within arid cave mouths distort these parameters, rendering adjacent formations unreliable barometers of regional rainfall intensity.</div>
-      <div class="q-text">Based on the passage, why might some cave speleothems yield inaccurate paleoclimate records?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) Calcite crystallization ceases entirely when caves experience drops in moisture availability.</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) Global shifts in climate cycles naturally reverse stable isotope values within rock structures.</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) Kinetic evaporation and rapid chemical processes near cave openings skew expected isotopic values.</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) Stable isotope profiles break down entirely when subjected to baseline seasonal temperature changes.</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: C.</strong> The author explicitly states that "rapid kinetics and localized kinetic evaporation within arid cave mouths distort these parameters," meaning the chemical indicators are shifted away from accuracy.</div>
-    </div>
-
-    <div class="q-card" data-correct="B">
-      <div class="q-number">Question 5</div>
-      <div class="q-skill">Craft and Structure / Words in Context</div>
-      <div class="q-passage">While many literary critics dismissed author Julian Vance's late prose as unnecessarily labyrinthine, a careful excavation of his underlying themes reveals that this complexity was rarely _______. Rather, the intricate structural loops intentionally mirrored the psychological disorientation of his protagonists.</div>
-      <div class="q-text">Which choice completes the text with the most logical and precise word?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) deliberate</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) gratuitous</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) profound</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) systemic</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: B.</strong> The sentence structure contrasts critics' negative view with the truth: the complexity had a deliberate purpose ("intentionally mirrored"). Thus, the complexity was not "gratuitous" (uncalled for, unwarranted, or lacking reason).</div>
-    </div>
-
-    <div class="q-card" data-correct="A">
-      <div class="q-number">Question 6</div>
-      <div class="q-skill">Expression of Ideas / Rhetorical Synthesis</div>
-      <div class="q-passage">While researching historical textile production, a student takes the following notes:<br>• In 19th-century New England, automated power looms rapidly replaced traditional handloom weaving.<br>• Handloom weaving allowed individual artisans control over pattern alterations mid-fabric.<br>• Automated power looms dramatically minimized production costs and accelerated output times.<br>• However, early automated systems severely restricted design flexibility, forcing factories to rely on repetitive geometric configurations.</div>
-      <div class="q-text">The student wants to contrast the primary advantage of handloom weaving with the primary advantage of automated power looms. Which choice most effectively uses information from the given notes to accomplish this goal?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) While handloom weaving afforded artisans dynamic creative control over pattern adjustments, automated power looms offered superior cost reduction and manufacturing speed.</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) Automated power looms transformed 19th-century New England manufacturing by replacing slower, traditional handloom techniques.</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) Traditional handloom weaving allowed for dynamic pattern alterations, but it restricted factories to low output capacities and high production investments.</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) Early automated power looms increased production speed but initially forced manufacturers to accept rigid, highly repetitive geometric designs.</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> This choice directly captures and balances the structural advantages of both methods, contrasting the artistic flexibility of handloom weaving with the economic/speed efficiency of power looms.</div>
-    </div>
-
-    <div class="q-card" data-correct="D">
-      <div class="q-number">Question 7</div>
-      <div class="q-skill">Information and Ideas / Textual Evidence</div>
-      <div class="q-passage">Biologist Dr. Kenji Sato monitored marine top predator behaviors surrounding deep hydrothermal vent structures. Standard ecological paradigms suggest that apex species restrict tracking movements to shallow, photic zones due to acute pressure thresholds. Dr. Sato observed, however, that specific sub-populations of swordfish regularly initiate vertical foraging dives extending well into aphotic bathypelagic layers. He contends that extreme ambient warmth leaking from oceanic rifts offsets the metabolic costs of hunting in freezing, deep-sea currents.</div>
-      <div class="q-text">Which observation, if true, would most directly undermine Dr. Sato’s dynamic contention?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) Shallow-water marine prey species contain higher lipid content densities than organisms adapted exclusively to hydrothermal vents.</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) Deep-diving swordfish possess specialized vascular networks that conserve eye and brain warmth independent of external sea water changes.</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) Core population densities of aphotic bathypelagic organisms fluctuate sharply across multi-year global solar cycles.</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) Identical vertical foraging dives are executed with equal frequency by swordfish hunting near cold seeps where no thermal plumes exist.</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: D.</strong> Dr. Sato's contention rests specifically on the idea that *thermal heat* from the vents allows the dives. If swordfish dive just as often in cold rifts with no thermal heat, it disproves that thermal heat is the driving metabolic factor.</div>
-    </div>
-
-    <div class="q-card" data-correct="C">
-      <div class="q-number">Question 8</div>
-      <div class="q-skill">Expression of Ideas / Transitions</div>
-      <div class="q-passage">The architectural team chose to preserve the original building's exposed brick masonry, prioritizing historical context over hyper-modern styling models. _______, they specified sustainable timber panels to line the primary atrium walls, thereby blending mid-century industrial textures with contemporary environmental frameworks.</div>
-      <div class="q-text">Which choice completes the text with the most logical transition?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) Conversely</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) Nevertheless</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) Complementarily</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) Alternatively</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: C.</strong> The sentence shows two design decisions that work harmoniously together to achieve a combined goal ("blending... textures"). "Complementarily" correctly identifies this supportive relationship, whereas the other options imply a contradiction or swap.</div>
-    </div>
-
-    <div class="q-card" data-correct="A">
-      <div class="q-number">Question 9</div>
-      <div class="q-skill">Craft and Structure / Cross-Text Analysis</div>
-      <div class="q-passage"><strong>Text 1</strong><br>For decades, economists assumed that urban expansion universally diminishes local biodiversity by fragmenting contiguous natural corridors. Recent meta-analyses, however, suggest that certain highly developed metropolitan areas can serve as unique refuges for avian species, provided urban planners optimize residential green spaces and intentional canopy connectivity.<br><br><strong>Text 2</strong><br>Ecologist Nia Brooks cautions against overestimating the conservation utility of urban greening projects. Her tracking studies demonstrate that while urban parks do draw high quantities of migratory birds, these zones often function as ecological traps. The concentrated presence of household domestic predators and acute noise pollution regularly disrupt avian nesting behaviors, leading to net negative fledgling survival metrics compared to natural forest interiors.</div>
-      <div class="q-text">Based on the passages, how would Brooks (Text 2) most likely respond to the findings cited in Text 1?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) By arguing that high species counts or occupancy rates within cities do not necessarily translate to genuine long-term conservation success.</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) By asserting that metropolitan areas cannot support migratory bird species under any structural planning configuration.</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) By suggesting that canopy connectivity projects should be prioritized exclusively within commercial industrial zones.</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) By confirming that residential green spaces completely eliminate the threats posed by habitat fragmentation.</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> Text 1 sees metropolitan areas as a potential "refuge" due to high counts/presence. Brooks (Text 2) notes that even if birds are drawn there, they suffer poor fledgling survival due to urban threats, meaning it is an "ecological trap," not a true long-term success.</div>
-    </div>
-
-    <div class="q-card" data-correct="D">
-      <div class="q-number">Question 10</div>
-      <div class="q-skill">Craft and Structure / Words in Context</div>
-      <div class="q-passage">The defense attorney argued that the forensic algorithm used to estimate the timeline was fundamentally flawed, noting that its calculations were predicated on highly selective parameters. Because the software routinely discarded variable climate values, its final outputs could only be viewed as completely _______.</div>
-      <div class="q-text">Which choice completes the text with the most logical and precise word?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) infallible</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) objective</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) rigorous</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) tendentious</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: D.</strong> The passage emphasizes that the system used "highly selective parameters" and "discarded variable values." This means the results are biased, one-sided, or systematically skewed rather than fair. "Tendentious" means promoting a specific, biased viewpoint or direction.</div>
+      <div class="q-explanation"><strong>Correct Answer: D.</strong> The passage compares two eras of artists using the same spaces but for different reasons: mid-century muralists wanted "public accessibility," while contemporary street artists want to "subvert commercial ownership." This is a clear contrast, making "By contrast" correct.</div>
     </div>
 
     <div class="study-score">
-      <span>Reading Score: <span id="reading-score-text">0</span> / 10</span>
+      <span>Reading Score: <span id="reading-score-text">0</span> / 3</span>
       <div class="score-bar"><div id="reading-score-fill" class="score-fill"></div></div>
     </div>
   </div>
@@ -711,7 +619,7 @@
         <li><button onclick="checkAnswer(this, 'C', 'math')">C) P(t) = 150(3)^(t/4)</button></li>
         <li><button onclick="checkAnswer(this, 'D', 'math')">D) P(t) = 4(3)^(150t)</button></li>
       </ul>
-      <div class="q-explanation"><strong>Correct Answer: C.</strong> Exponential growth is modeled by the format P = I(R)^(t/p), where I is the initial value (150), R is the rate multiplier (3), and p is the interval period (4 hours). Therefore, the correct exponent tracking the total hours step-by-step is t/4.</div>
+      <div class="q-explanation"><strong>Correct Answer: C.</strong> Exponential growth is modeled by P = I(R)^(t/p), where I is initial value (150), R is the multiplier (3), and p is the interval period (4 hours). The exponent tracking total hours is t/4.</div>
     </div>
 
     <div class="q-card" data-correct="B">
@@ -737,234 +645,12 @@
         <li><button onclick="checkAnswer(this, 'C', 'math')">C) -6</button></li>
         <li><button onclick="checkAnswer(this, 'D', 'math')">D) 6</button></li>
       </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> Set equations equal: x^2 - 6x + 14 = 2x + k -> x^2 - 8x + (14 - k) = 0. For exactly one intersection point, the discriminant must equal zero: b^2 - 4ac = 0. Thus, (-8)^2 - 4(1)(14 - k) = 0 -> 64 - 56 + 4k = 0 -> 8 + 4k = 0 -> k = -2.</div>
-    </div>
-
-    <div class="q-card" data-correct="D">
-      <div class="q-number">Question 4</div>
-      <div class="q-skill">Problem Solving and Data Analysis / Statistics</div>
-      <div class="q-text">A sample of 400 residential homes in a city had a mean monthly electricity consumption of 840 kilowatt-hours (kWh), with an associated margin of error of 35 kWh at a 95% confidence level. Which of the following statements is a valid conclusion based on these parameters?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) Exactly 95% of all residential homes in the city consume between 805 and 875 kWh per month.</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) The true mean monthly electricity consumption for all homes in the city must be exactly 840 kWh.</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) A larger sample of homes selected from the same city would automatically guarantee a larger margin of error.</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) It is plausible that the true mean monthly electricity consumption for the entire population of residential homes in the city is between 805 kWh and 875 kWh.</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: D.</strong> Statistical confidence intervals estimate population parameters, meaning it is plausible that the true population mean falls within the calculated margin range (840 ± 35, which spans 805 to 875). It does not guarantee values for individual homes or state exact certainties.</div>
-    </div>
-
-    <div class="q-card" data-correct="B">
-      <div class="q-number">Question 5</div>
-      <div class="q-skill">Geometry and Trigonometry / Circles</div>
-      <div class="q-text">In the xy-plane, the equation of a circle is given by x^2 + y^2 - 10x + 4y = 7. What is the radius of this circle?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) √7</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) 6</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) 36</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) √29</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: B.</strong> Group the terms to complete the square: (x^2 - 10x + 25) + (y^2 + 4y + 4) = 7 + 25 + 4. This simplifies to standard circle form: (x - 5)^2 + (y + 2)^2 = 36. Since r^2 = 36, the radius r = 6.</div>
-    </div>
-
-    <div class="q-card" data-correct="A">
-      <div class="q-number">Question 6</div>
-      <div class="q-skill">Algebra / Systems of Inequalities</div>
-      <div class="q-text">If a system of linear inequalities is defined by y ≥ 3x - 4 and 2x + 3y < 12, which of the following coordinate ordered pairs (x, y) represents a valid solution in the solution set?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) (1, 2)</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) (3, 5)</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) (0, -6)</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) (4, 1)</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> Substitute (1, 2): First check 2 ≥ 3(1) - 4 -> 2 ≥ -1 (True). Next check 2(1) + 3(2) < 12 -> 2 + 6 < 12 -> 8 < 12 (True). Both conditions match perfectly.</div>
-    </div>
-
-    <div class="q-card" data-correct="D">
-      <div class="q-number">Question 7</div>
-      <div class="q-skill">Advanced Math / Rational Equations</div>
-      <div class="q-text">Given the expression (4x + 12) / (x^2 - 9) * (x^2 - 2x - 3) / (8x + 8) for all x > 3, which of the following represents its completely simplified form?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) (x + 1) / 2</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) 1 / (x - 3)</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) 4 / (x + 1)</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) 1 / 2</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: D.</strong> Factor every single term: [4(x + 3)] / [(x - 3)(x + 3)] * [(x - 3)(x + 1)] / [8(x + 1)]. Cancel out common matching binomial blocks across fractions leaves: 4 / 8, which simplifies directly down to 1/2.</div>
-    </div>
-
-    <div class="q-card" data-correct="B">
-      <div class="q-number">Question 8</div>
-      <div class="q-skill">Problem Solving and Data Analysis / Rates and Ratios</div>
-      <div class="q-text">A standard processing plant line converts chemical raw materials at a continuous rate of 12 liters every 45 seconds. At this exact steady conversion rate, how many total kiloliters (kL) of materials will the facility process over an operating window of 5 complete hours? (Note: 1 kiloliter = 1,000 liters)</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) 3.6 kL</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) 4.8 kL</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) 48.0 kL</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) 80.0 kL</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: B.</strong> Find output per minute: (12 L / 45 sec) * 60 sec = 16 L per minute. For 5 hours (300 minutes): 16 L * 300 = 4,800 total Liters. Convert to kiloliters: 4,800 / 1,000 = 4.8 kL.</div>
-    </div>
-
-    <div class="q-card" data-correct="A">
-      <div class="q-number">Question 9</div>
-      <div class="q-skill">Geometry and Trigonometry / Right Triangles</div>
-      <div class="q-text">In a right-angled triangle ABC, angle B measures exactly 90 degrees. If the value of cos(A) = 7/25, what is the value of tan(C)?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) 7/24</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) 24/7</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) 24/25</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) 7/25</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> If cos(A) = adjacent/hypotenuse = 7/25, then using the Pythagorean theorem (7-24-25 triplet), the remaining opposite side to angle A is 24. For angle C, side 7 becomes the opposite and side 24 becomes the adjacent. Thus, tan(C) = opposite/adjacent = 7/24.</div>
-    </div>
-
-    <div class="q-card" data-correct="C">
-      <div class="q-number">Question 10</div>
-      <div class="q-skill">Algebra / Constants and Linear Functions</div>
-      <div class="q-text">The linear function f is defined by f(x) = ax + b, where a and b are real constants. If f(2) = 11 and f(5) = 26, what is the value of f(-3)?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) -19</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) -15</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) -14</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) -11</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: C.</strong> Find the slope (constant a): (26 - 11) / (5 - 2) = 15 / 3 = 5. Now find intercept b: 11 = 5(2) + b -> b = 1. The full function line structure is f(x) = 5x + 1. Evaluating for f(-3) yields 5(-3) + 1 = -15 + 1 = -14.</div>
+      <div class="q-explanation"><strong>Correct Answer: A.</strong> Set equations equal: x^2 - 6x + 14 = 2x + k -> x^2 - 8x + (14 - k) = 0. For exactly one intersection point, the discriminant must equal zero (b^2 - 4ac = 0). Thus, (-8)^2 - 4(1)(14 - k) = 0 -> 64 - 56 + 4k = 0 -> 8 + 4k = 0 -> k = -2.</div>
     </div>
 
     <div class="study-score">
-      <span>Math Score: <span id="math-score-text">0</span> / 10</span>
+      <span>Math Score: <span id="math-score-text">0</span> / 3</span>
       <div class="score-bar"><div id="math-score-fill" class="score-fill"></div></div>
     </div>
   </div>
 </section>
-
-<section id="enroll" class="enroll">
-  <div class="section-label">Get Started</div>
-  <h2 class="section-title">Schedule A Free Consultation</h2>
-  
-  <form id="contact-form" action="https://formspree.io/f/mqeopkov" method="POST" onsubmit="handleFormSubmit(event)">
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="student-name">Student Name</label>
-        <input type="text" id="student-name" name="student_name" placeholder="John Doe" required />
-      </div>
-      <div class="form-group">
-        <label for="parent-email">Email Address</label>
-        <input type="email" id="parent-email" name="email" placeholder="name@example.com" required />
-      </div>
-      <div class="form-group">
-        <label for="grade-level">Current Grade Level</label>
-        <select id="grade-level" name="grade_level" required>
-          <option value="" disabled selected>Select grade</option>
-          <option value="9">9th Grade (Freshman)</option>
-          <option value="10">10th Grade (Sophomore)</option>
-          <option value="11">11th Grade (Junior)</option>
-          <option value="12">12th Grade (Senior)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="target-date">Target Test Date</label>
-        <select id="target-date" name="target_date" required>
-          <option value="" disabled selected>Select target window</option>
-          <option value="Fall">Fall Session</option>
-          <option value="Spring">Spring Session</option>
-          <option value="Summer">Summer Intensive</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label for="message">Goals or Areas Needing Improvement</label>
-        <textarea id="message" name="message" placeholder="Tell us about your student's target score or struggles..." required></textarea>
-      </div>
-      
-      <button type="submit" class="submit-btn">Submit Request</button>
-      <p class="form-note">We typically reply within 24 business hours to coordinate an introductory strategy call.</p>
-    </div>
-  </form>
-  
-  <div id="form-success">
-    🎉 Thank you! Your request has been submitted successfully. We will contact you shortly!
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2026 All About SAT. All Rights Reserved. | Handcrafted via <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
-</footer>
-
-<script>
-  let scores = { reading: 0, math: 0 };
-  const answeredCards = new Set();
-  const totalQuestionsPerTab = 10;
-
-  function switchTab(tabName) {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-    
-    if(tabName === 'reading') {
-      document.getElementById('btn-reading').classList.add('active');
-      document.getElementById('reading-panel').classList.add('active');
-    } else {
-      document.getElementById('btn-math').classList.add('active');
-      document.getElementById('math-panel').classList.add('active');
-    }
-  }
-
-  function checkAnswer(button, choice, tab) {
-    const card = button.closest('.q-card');
-    const correctLetter = card.getAttribute('data-correct');
-    
-    if (answeredCards.has(card)) return;
-    answeredCards.add(card);
-
-    const buttons = card.querySelectorAll('.q-options button');
-    buttons.forEach(btn => btn.disabled = true);
-
-    if (choice === correctLetter) {
-      button.classList.add('correct');
-      scores[tab]++;
-    } else {
-      button.classList.add('wrong');
-      buttons.forEach(btn => {
-        if(btn.outerHTML.includes(`'${correctLetter}'`)) {
-          btn.classList.add('show-correct');
-        }
-      });
-    }
-
-    const explanation = card.querySelector('.q-explanation');
-    if (explanation) explanation.classList.add('visible');
-
-    // Update specific tab score text and progress bars cleanly
-    document.getElementById(`${tab}-score-text`).innerText = scores[tab];
-    const progressPercent = (scores[tab] / totalQuestionsPerTab) * 100;
-    document.getElementById(`${tab}-score-fill`).style.width = progressPercent + '%';
-  }
-
-  /* FORMSPREE AJAX INTERACTION */
-  function handleFormSubmit(event) {
-    event.preventDefault(); 
-    
-    const form = event.target;
-    const data = new FormData(form);
-    const successBanner = document.getElementById('form-success');
-
-    fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        form.style.display = 'none'; 
-        successBanner.style.display = 'block'; 
-      } else {
-        alert("Oops! There was a problem processing your submission. Please check your Formspree dashboard.");
-      }
-    }).catch(error => {
-      alert("Connection error. Could not reach server.");
-    });
-  }
-</script>
-
-</body>
-</html>

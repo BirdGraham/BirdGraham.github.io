@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All About SAT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700;900&family=DM+Sans:wght=300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght=300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --navy: #0d1b2a;
@@ -132,11 +132,27 @@
       max-width: 360px;
     }
 
-    .photo-frame svg {
+    .photo-frame img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       display: block;
+      border: 3px solid var(--gold);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+    
+    .photo-caption {
+      text-align: center;
+      margin-top: 15px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+    
+    .photo-caption strong {
+      color: var(--gold);
+      font-weight: 500;
     }
 
     /* ── STATS BAR ── */
@@ -217,6 +233,51 @@
     .service-icon { font-size: 2rem; margin-bottom: 16px; }
     .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 12px; }
     .service-card p { font-size: 0.92rem; color: #666; line-height: 1.7; }
+
+    /* ── CORE COURSE QA DROPDOWN STYLE ── */
+    .faq-portfolio-section {
+      background-color: var(--navy);
+      color: var(--white);
+    }
+    .faq-portfolio-section .section-title {
+      color: var(--gold);
+    }
+    .faq-category-wrap {
+      margin-bottom: 45px;
+    }
+    .faq-category-title {
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 10px;
+      font-size: 1.7rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+    }
+    .faq-dropdown {
+      background: #1b263b;
+      padding: 16px;
+      margin: 12px 0;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .faq-dropdown:hover {
+      background: #22314d;
+    }
+    .faq-dropdown summary {
+      font-weight: 500;
+      color: var(--white);
+      outline: none;
+      font-size: 1.02rem;
+      user-select: none;
+    }
+    .faq-dropdown p {
+      margin-top: 12px;
+      color: #e0e0e0;
+      line-height: 1.7;
+      font-size: 0.96rem;
+      font-weight: 300;
+    }
 
     /* ── STUDY SECTION ── */
     .study { background: var(--white); }
@@ -464,318 +525,463 @@
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-text">
-    <span class="badge">100% Online SAT Tutoring</span>
-    <h1>Raise Your <span>SAT Score</span> With Expert Guidance</h1>
-    <p>One-on-one online SAT prep tailored to your student's strengths, weaknesses, and goals, with a tutor who truly cares about results.</p>
-    <div class="price-tag">
-      <span class="dollar">$</span>
-      <span class="amount">45</span>
-      <span class="unit">/ hour</span>
-    </div>
-    <div>
-      <a href="#study" class="cta-btn" style="margin-right:12px;">Practice Now</a>
-      <a href="#enroll" class="cta-btn" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Get Started</a>
-    </div>
-  </div>
-  <div class="hero-photo">
-    <div class="photo-frame">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="400" rx="8" fill="#1b2a4a"/>
-        <circle cx="200" cy="160" r="60" fill="#c9973a"/>
-        <path d="M100,320 C100,240 140,240 200,240 C260,240 300,240 300,320" fill="#c9973a"/>
-        <text x="200" y="370" font-family="'DM Sans', sans-serif" font-size="16" fill="#faf7f2" text-anchor="middle" letter-spacing="2">ONLINE PREP</text>
-      </svg>
-    </div>
-  </div>
-</header>
-<div class="stats">
-  <div class="stat">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Online & Flexible</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">Custom</div>
-    <div class="stat-label">Lesson Plans</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">1-on-1</div>
-    <div class="stat-label">Focused Attention</div>
-  </div>
-</div>
-
-<section id="about" class="about">
-  <div class="about-grid">
-    <div>
-      <div class="section-label">The Strategy</div>
-      <h2 class="section-title">Personalized Guidance, Real Results</h2>
-      <p>Standardized tests don't just measure what you know—they measure how well you take the test. Our online tutoring program focuses on core content mastery, logical breakdown strategies, and time-management frameworks designed specifically for the Digital SAT platform.</p>
-    </div>
-    <div>
-      <ul class="check-list">
-        <li>Comprehensive diagnoses of conceptual gaps.</li>
-        <li>Targeted practice sessions in Reading, Writing, and Math.</li>
-        <li>Interactive dashboard and real-time screen sharing.</li>
-        <li>Flexible scheduling to match busy student routines.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="services">
-  <div class="section-label">What We Offer</div>
-  <h2 class="section-title">Comprehensive Prep Services</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">📘</div>
-      <h3>Digital SAT Reading</h3>
-      <p>Master context clues, complex central ideas, structural analysis, and vocabulary shortcuts built to handle the new modular adaptive formatting safely.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📐</div>
-      <h3>Digital SAT Math</h3>
-      <p>Targeted training across Algebra, Advanced Math, Problem Solving, Data Analysis, and Geometry, utilizing efficient graphing tools and custom shortcuts.</p>
-    </div>
-    <div class="
-      <div class="service-card">
-      <div class="service-icon">🎯</div>
-      <h3>Testing Strategy</h3>
-      <p>Learn strategic elimination tactics, precise pacing parameters, and anxiety-reduction workflows designed to maximize scoring efficiency under tight clocks.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── INTERACTIVE STUDY SECTION ── -->
-<section id="study" class="study">
-  <div class="section-label">Interactive Practice</div>
-  <h2 class="section-title">Try Real Sample Questions</h2>
-  <p class="study-intro">Test your skills right now. Select a subject below, pick your answer, and receive an instant breakdown of the fundamental logic.</p>
-  
-  <div class="tab-bar">
-    <button id="btn-reading" class="tab-btn active" onclick="switchTab('reading')">Reading & Writing</button>
-    <button id="btn-math" class="tab-btn" onclick="switchTab('math')">Mathematics</button>
-  </div>
-  <!-- Reading Panel (Exactly 3 Questions) -->
-  <div id="reading-panel" class="tab-panel active">
-    <!-- Question 1 -->
-    <div class="q-card" data-correct="B">
-      <div class="q-number">Question 1</div>
-      <div class="q-skill">Information and Ideas / Command of Evidence</div>
-      <div class="q-passage">In many high-altitude ecosystems, soil nutrient availability acts as a strict constraint on plant biomass. Ecologist Dr. Elena Vance hypothesized that specific subalpine cushion plants actively alter their immediate substrate chemistry, creating localized microenvironments that facilitate the survival of neighboring, less-hardy flora.</div>
-      <div class="q-text">Which finding, if true, would most directly support Dr. Vance’s hypothesis?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) Subalpine cushion plants exhibit faster growth metrics when positioned near rocky outcrops than when situated in deep valley soils.</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) Soil samples gathered directly beneath cushion plants reveal significantly higher concentrations of bioavailable nitrogen than samples gathered two meters away.</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) Neighboring flora species located far away from cushion plants display an increased reliance on deep taproot structures to secure water reserves.</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) Genetic analysis shows no significant evolutionary divergence between subalpine cushion plants and low-altitude variants.</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: B.</strong> Dr. Vance's hypothesis hinges entirely on cushion plants actively changing their substrate chemistry to help nearby plants. Showing that soil directly underneath these plants contains higher bioavailable nitrogen explicitly confirms this chemical modification.</div>
-    </div>
-
-    <!-- Question 2 -->
-    <div class="q-card" data-correct="A">
-      <div class="q-number">Question 2</div>
-      <div class="q-skill">Craft and Structure / Words in Context</div>
-      <div class="q-passage">The corporate governance committee insisted that the executive's record, far from being completely unblemished, was actually marked by strategic omissions. Yet, because those omissions never technically violated local statutes, the final compliance report described his tenure as entirely _______.</div>
-      <div class="q-text">Which choice completes the text with the most logical and precise word?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) licit</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) peerless</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) anomalous</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) explicit</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> The sentence establishes a contrast using "Yet." Even though there were omissions, they "never technically violated local statutes." Therefore, the report must describe his tenure as legal. "Licit" directly means lawful or legal.</div>
-    </div>
-
-    <!-- Question 3 -->
-    <div class="q-card" data-correct="D">
-      <div class="q-number">Question 3</div>
-      <div class="q-skill">Expression of Ideas / Transitions</div>
-      <div class="q-passage">Art historian Clara Simmons argues that mid-twentieth-century muralists were driven primarily by public accessibility, placing large-scale works in subways and public squares. _______, contemporary street artists often utilize identical urban surfaces but are frequently motivated by a desire to subvert commercial ownership of public visual spaces.</div>
-      <div class="q-text">Which choice completes the text with the most logical transition?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'reading')">A) As a result</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'reading')">B) In addition</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'reading')">C) For instance</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'reading')">D) By contrast</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: D.</strong> The passage compares two eras of artists using the same spaces but for different reasons: mid-century muralists wanted "public accessibility," while contemporary street artists want to "subvert commercial ownership." This is a clear contrast, making "By contrast" correct.</div>
-    </div>
-
-    <div class="study-score">
-      <span>Reading Score: <span id="reading-score-text">0</span> / 3</span>
-      <div class="score-bar"><div id="reading-score-fill" class="score-fill"></div></div>
-    </div>
-  </div>
-  <div id="math-panel" class="tab-panel">
-    <div class="q-card" data-correct="C">
-      <div class="q-number">Question 1</div>
-      <div class="q-skill">Advanced Math / Nonlinear Functions</div>
-      <div class="q-text">A bacterial population triples in size every 4 hours. If the initial population size at t = 0 is 150, which of the following expressions represents the total population size after t hours?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) P(t) = 150(3)^(4t)</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) P(t) = 150(4)^(t/3)</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) P(t) = 150(3)^(t/4)</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) P(t) = 4(3)^(150t)</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: C.</strong> Exponential growth is modeled by P = I(R)^(t/p), where I is initial value (150), R is the multiplier (3), and p is the interval period (4 hours). The exponent tracking total hours is t/4.</div>
-    </div>
-
-    <div class="q-card" data-correct="B">
-      <div class="q-number">Question 2</div>
-      <div class="q-skill">Algebra / Linear Equations</div>
-      <div class="q-text">A local catering company charges a flat setup fee of 85 dollars plus an additional 24 dollars per guest. If a client's total bill before tax was 1165 dollars, how many guests attended the event?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) 41</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) 45</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) 48</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) 52</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: B.</strong> Set up the linear equation: 24g + 85 = 1165. Subtracting 85 from both sides gives 24g = 1080. Dividing both sides by 24 gives g = 45 guests.</div>
-    </div>
-
-    <div class="q-card" data-correct="A">
-      <div class="q-number">Question 3</div>
-      <div class="q-skill">Advanced Math / Quadratic Systems</div>
-      <div class="q-text">In the xy-plane, a parabola with the equation y = x^2 - 6x + 14 intersects a linear line given by y = 2x + k at exactly one point. What is the value of the constant k?</div>
-      <ul class="q-options">
-        <li><button onclick="checkAnswer(this, 'A', 'math')">A) -2</button></li>
-        <li><button onclick="checkAnswer(this, 'B', 'math')">B) 2</button></li>
-        <li><button onclick="checkAnswer(this, 'C', 'math')">C) -6</button></li>
-        <li><button onclick="checkAnswer(this, 'D', 'math')">D) 6</button></li>
-      </ul>
-      <div class="q-explanation"><strong>Correct Answer: A.</strong> Set equations equal: x^2 - 6x + 14 = 2x + k -> x^2 - 8x + (14 - k) = 0. For exactly one intersection point, the discriminant must equal zero (b^2 - 4ac = 0). Thus, (-8)^2 - 4(1)(14 - k) = 0 -> 64 - 56 + 4k = 0 -> 8 + 4k = 0 -> k = -2.</div>
-    </div>
-
-    <div class="study-score">
-      <span>Math Score: <span id="math-score-text">0</span> / 3</span>
-      <div class="score-bar"><div id="math-score-fill" class="score-fill"></div></div>
-    </div>
-  </div>
-</section>
-  <section id="enroll" class="enroll">
-  <div class="section-label">Get Started</div>
-  <h2 class="section-title">Schedule A Free Consultation</h2>
-  
-  <form id="contact-form" action="https://formspree.io/f/mqeopkov" method="POST" onsubmit="handleFormSubmit(event)">
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="student-name">Student Name</label>
-        <input type="text" id="student-name" name="student_name" placeholder="John Doe" required />
-      </div>
-      <div class="form-group">
-        <label for="parent-email">Email Address</label>
-        <input type="email" id="parent-email" name="email" placeholder="name@example.com" required />
-      </div>
-      <div class="form-group">
-        <label for="grade-level">Current Grade Level</label>
-        <select id="grade-level" name="grade_level" required>
-          <option value="" disabled selected>Select grade</option>
-          <option value="9">9th Grade (Freshman)</option>
-          <option value="10">10th Grade (Sophomore)</option>
-          <option value="11">11th Grade (Junior)</option>
-          <option value="12">12th Grade (Senior)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="target-date">Target Test Date</label>
-        <select id="target-date" name="target_date" required>
-          <option value="" disabled selected>Select target window</option>
-          <option value="Fall">Fall Session</option>
-          <option value="Spring">Spring Session</option>
-          <option value="Summer">Summer Intensive</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label for="message">Goals or Areas Needing Improvement</label>
-        <textarea id="message" name="message" placeholder="Tell us about your student's target score or struggles..." required></textarea>
-      </div>
+  <!-- ── HERO SECTION ── -->
+  <header class="hero" id="home">
+    <div class="hero-text">
+      <div class="badge">Digital SAT Prep</div>
+      <h1>Master the SAT. <span>Unlock Doors.</span></h1>
+      <p>Targeted, strategic instruction designed to conquer the Digital SAT layout, boost score confidence, and demystify complex testing logic.</p>
       
-      <button type="submit" class="submit-btn">Submit Request</button>
-      <p class="form-note">We typically reply within 24 business hours to coordinate an introductory strategy call.</p>
+      <!-- Updated Price Block -->
+      <div class="price-tag">
+        <span class="dollar">$</span>
+        <span class="amount">50</span>
+        <span class="unit">/ hour</span>
+      </div>
+
+      <a href="#enroll" class="cta-btn">Book an Evaluation</a>
     </div>
-  </form>
-  
-  <div id="form-success">
-    🎉 Thank you! Your request has been submitted successfully. We will contact you shortly!
+
+    <!-- Updated Verbatim Photo Container -->
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <img src="Kirstene Photo.jpg" alt="Kristen L Graham - Lead SAT Instructor" />
+        <div class="photo-caption"><strong>Kristen L Graham</strong><br>Lead SAT Instructor</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── STATS BAR ── -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">1600</div>
+      <div class="stat-label">Perfect Scale</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Core Modules</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Digital Layout</div>
+    </div>
   </div>
-</section>
 
-<footer>
-  <p>&copy; 2026 All About SAT. All Rights Reserved. | Handcrafted via <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
-</footer>
+  <!-- ── ABOUT SECTION ── -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">Your Instructor</div>
+        <h2 class="section-title">Data-Driven Approach to Testing</h2>
+        <p>Success on the Digital SAT isn't about memorizing terms—it's about understanding test patterns and reading the underlying framework of the questions.</p>
+        <p>Every dynamic lesson focuses on identifying mechanical traps, managing structural pacing, and applying rigorous logic across both core sections of the digital assessment platform.</p>
+      </div>
+      <div>
+        <ul class="check-list">
+          <li>Custom diagnostics tailored to specific individual goal targets</li>
+          <li>Comprehensive formula breakdown and operational shortcuts</li>
+          <li>Time-management pacing routines designed to combat exam anxiety</li>
+          <li>Direct instructional feedback cycles updated after each testing drill</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<script>
-  let scores = { reading: 0, math: 0 };
-  const answeredCards = new Set();
-  const totalQuestionsPerTab = 3; 
+  <!-- ── SERVICES SECTION ── -->
+  <section class="services" id="services">
+    <div class="section-label">Curriculum Scope</div>
+    <h2 class="section-title">Comprehensive Strategy Areas</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Math Operations</h3>
+        <p>Master linear equations, advanced quadratic systems, coordinate geometry, data analysis, and advanced trigonometry problems efficiently.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📖</div>
+        <h3>Reading Mechanics</h3>
+        <p>Deconstruct complex structural arguments, pinpoint direct passage evidence, analyze craft and structure, and identify text purpose accurately.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✍️</div>
+        <h3>Writing Conventions</h3>
+        <p>Refine critical boundaries, punctuation rules, structural parallelism, standard verbs, and logical modifier placements instantly.</p>
+      </div>
+    </div>
+  </section>
 
-  function switchTab(tabName) {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+  <!-- ── 30 DIGITAL SAT CORE COURSE QA SECTION ── -->
+  <section class="faq-portfolio-section" id="course-qa">
+    <div class="section-label">Course Guide</div>
+    <h2 class="section-title">Digital SAT Blueprint Q&A</h2>
     
-    if(tabName === 'reading') {
-      document.getElementById('btn-reading').classList.add('active');
-      document.getElementById('reading-panel').classList.add('active');
-    } else {
-      document.getElementById('btn-math').classList.add('active');
-      document.getElementById('math-panel').classList.add('active');
-    }
-  }
+    <!-- Category 1: Math Strategy -->
+    <div class="faq-category-wrap">
+      <h3 class="faq-category-title">1. Math Operations & Strategies</h3>
+      
+      <details class="faq-dropdown">
+        <summary>Q1: How should I set up multi-step percentage change word problems?</summary>
+        <p>Always translate the scenario into sequential decimal factors. If a value increases by 15% and then decreases by 8%, express the operation as (Initial Value) * 1.15 * 0.92 instead of trying to calculate standalone absolute differences step-by-step.</p>
+      </details>
 
-  function checkAnswer(button, choice, tab) {
-    const card = button.closest('.q-card');
-    const correctLetter = card.getAttribute('data-correct');
+      <details class="faq-dropdown">
+        <summary>Q2: What is the fastest method to solve standard system of equations problems?</summary>
+        <p>Look immediately for elimination opportunities by multiplying entire rows to match coefficients. If both equations are complex, quickly check if graphing them on the digital calculator reveals a clear intersection coordinate within seconds.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q3: How do I handle missing constant questions for quadratic expressions with zero solutions?</summary>
+        <p>Set the discriminant (b^2 - 4ac) to less than zero. Isolate the missing variable or constant step-by-step to find the exact range or value boundary required by the prompt.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q4: What is the rule for adding or subtracting mixed fractions in multi-step equations?</summary>
+        <p>When solving complex algebraic steps involving mixed numbers, convert them into improper fractions or isolate and combine the whole number parts first, then combine the remaining fractional parts over a common denominator.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q5: How do I interpret the slope of a linear model in a real-world data passage?</summary>
+        <p>The slope always represents the estimated change in the dependent variable (y-axis) for every single unit increase in the independent variable (x-axis). Read the specific axes units carefully to avoid scale traps.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q6: What is the strategy for circle equations in the xy-plane?</summary>
+        <p>Convert the given expression into standard form, (x - h)^2 + (y - k)^2 = r^2, by completing the square for x and y terms. This instantly reveals the exact center coordinates (h, k) and the true radius value r.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q7: How do I calculate exponential growth versus linear growth rates?</summary>
+        <p>Linear growth adds a constant amount per unit of time, whereas exponential growth multiplies by a constant factor over equal intervals. Look for words like "percent increase annually" to confirm an exponential model.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q8: What should I do when a geometry problem provides an un-drawn figure?</summary>
+        <p>Immediately sketch the figure out on your scratch paper. Label all known side lengths, angle degrees, and coordinate points to uncover hidden right triangles or parallel line properties.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q9: How do I find the sum of solutions for a quadratic equation quickly?</summary>
+        <p>Use the formula -b/a directly from the standard quadratic form ax^2 + bx + c = 0. This bypasses the need to factor or utilize the full quadratic formula just to sum the roots.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q10: How do I handle radical equations with potential extraneous solutions?</summary>
+        <p>Isolate the radical, square both sides to solve for the variable, and then substitute your answers back into the original equation. Extraneous solutions often produce invalid negative values under the radical.</p>
+      </details>
+    </div>
+
+    <!-- Category 2: Reading Evidence -->
+    <div class="faq-category-wrap">
+      <h3 class="faq-category-title">2. Reading Evidence & Textual Analysis</h3>
+      
+      <details class="faq-dropdown">
+        <summary>Q11: How do I tackle "Command of Evidence" prompts that use data tables?</summary>
+        <p>Isolate the exact claim made by the researcher in the text passage first. Then, look for the specific data row or column combination that directly validates or invalidates that single targeted claim.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q12: What is the best way to handle vocabulary-in-context questions?</summary>
+        <p>Read the entire paragraph and place a blank placeholder where the word sits. Predict an easy, logical synonym based purely on context clues before looking at the choices to avoid distraction.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q13: How do I approach paired historical text passages?</summary>
+        <p>Identify the central argument of Author 1, then determine if Author 2 supports, qualifies, or entirely opposes that stance. Focus intensely on their specific areas of agreement or disagreement.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q14: What marks an answer choice as a "distractor" in central idea questions?</summary>
+        <p>Distractors are often choices that are partially true but too broad, too narrow, or introduce outside information not explicitly supported by the lines provided in the brief text block.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q15: How do I determine the primary purpose of a poem excerpt?</summary>
+        <p>Look past individual decorative imagery and analyze the structural shift in tone or perspective, which usually occurs near the middle or final lines of the stanza.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q16: How do I track down implicit character perspectives in narratives?</summary>
+        <p>Pay close attention to descriptive modifiers and verbs used by the narrator. These subtle shifts reveal emotional alignment or ironic detachment toward other characters.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q17: What is the rule for evaluating scientific hypotheses in text prompts?</summary>
+        <p>Locate the specific condition or variable being tested. The correct choice will always match the exact outcome predicted by that specific structural setup without added assumptions.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q18: How do I map cross-textual connections across differing arguments?</summary>
+        <p>Summarize both snippets in 3–5 words on scrap paper. Focus your comparison purely on the overlap between their core nouns and primary active claims.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q19: How should I read dense, archaic 19th-century text excerpts?</summary>
+        <p>Strip away parenthetical clauses and complex descriptive commas. Focus entirely on finding the core subject-verb-object skeleton to track the absolute baseline meaning.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q20: What makes a choice "directly supported by text" on the Digital SAT?</summary>
+        <p>The correct choice will be a clean, unembellished paraphrase of the text. If an option requires you to make a logical leap or guess what happens next, it is wrong.</p>
+      </details>
+    </div>
+
+    <!-- Category 3: Writing Conventions -->
+    <div class="faq-category-wrap">
+      <h3 class="faq-category-title">3. Writing Conventions & Grammar Mechanics</h3>
+      
+      <details class="faq-dropdown">
+        <summary>Q21: When should I use a semicolon instead of a comma and a conjunction?</summary>
+        <p>Use a semicolon strictly to separate two independent clauses that are closely linked in thought and are not joined by a standard coordinating conjunction (FANBOYS).</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q22: How do I fix a dangling modifier error in a complex sentence?</summary>
+        <p>Ensure that the descriptive phrase placed before the initial comma matches the exact noun placed immediately after that comma. The modifier must logically describe that subject.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q23: What is the direct rule for punctuation around essential versus nonessential clauses?</summary>
+        <p>Nonessential clauses require matching commas, dashes, or parentheses around them, allowing them to be lifted completely out of the sentence. Essential clauses take absolutely no commas.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q24: How do I resolve complex pronoun-antecedent agreement questions?</summary>
+        <p>Track backward to locate the true singular or plural noun being replaced. Watch out for complex prepositional phrases that try to trick you by placing a different noun closer to the pronoun.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q25: What is the criteria for picking the correct transitional word or phrase?</summary>
+        <p>Analyze the sentence before the transition and the sentence after it. Label their internal logical relationship as either cause-and-effect, contrast, addition, or exemplification before looking at choices.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q26: How do I choose between a colon and a dash to introduce a clarification?</summary>
+        <p>A colon must always be preceded by a complete independent clause and is used to introduce an explanation, list, or quote. A single dash can perform a similar function but adds dramatic emphasis.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q27: How do I verify correct subject-verb agreement in sentences containing inverted order?</summary>
+        <p>Locate the true verb first, then look downstream to find the actual plural or singular noun triggering it, bypassing introductory directional or location descriptors entirely.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q28: What is the standard SAT rule for coordinating items within a series?</summary>
+        <p>Items in a series must display matching grammatical structure (parallelism) and must be separated by commas, including a clean comma placed right before the final conjunction.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q29: How do I distinguish between "its", "it's", and "its'" during a grammar drill?</summary>
+        <p>"Its" shows singular possession; "it's" is the contraction for "it is". The form "its'" is completely grammatically invalid and should be dismissed immediately.</p>
+      </details>
+
+      <details class="faq-dropdown">
+        <summary>Q30: How do I solve rhetorical synthesis prompts that provide bulleted notes?</summary>
+        <p>Look at the very end of the prompt to see the user's specific goal (e.g., "to emphasize a contrast"). Select the choice that addresses that goal using only facts from the bullets.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ── SKILL ASSESSMENT PRACTICE SECTION ── -->
+  <section class="study" id="practice">
+    <div class="section-label">Practice Module</div>
+    <h2 class="section-title">Interactive Skill Assessment</h2>
+    <p class="study-intro">Test your mechanical instincts below. Review your accuracy instantly and read through the detailed logical structural breakdowns provided for each problem type.</p>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(event, 'math')">MATH MODULE</button>
+      <button class="tab-btn" onclick="switchTab(event, 'reading')">READING MODULE</button>
+      <button class="tab-btn" onclick="switchTab(event, 'writing')">WRITING MODULE</button>
+    </div>
+
+    <!-- MATH PANEL (Clean Math Formatting, No Math Symbols) -->
+    <div id="math" class="tab-panel active">
+      <div class="q-card" data-qindex="0">
+        <div class="q-number">Question 1</div>
+        <div class="q-skill">Advanced Math / Equations</div>
+        <div class="q-text">
+          A local community nursery manages two main areas of land. To fix the overall nutrients of the primary field, a gardener adds an initial treatment to 3 1/2 acres of land. The following afternoon, the gardener applies the exact same treatment process to an additional 2 1/4 acres of land. 
+          <br><br>
+          If the entire process is modeled by adding the absolute whole numbers together first before combining the remaining fractional parts, what is the total acreage treated over these two days?
+        </div>
+        <ul class="q-options">
+          <li><button onclick="checkAnswer(this, 0, 0)">A) 5 1/2 acres</button></li>
+          <li><button onclick="checkAnswer(this, 1, 0)">B) 5 3/4 acres</button></li>
+          <li><button onclick="checkAnswer(this, 2, 0)">C) 6 1/4 acres</button></li>
+          <li><button onclick="checkAnswer(this, 3, 0)">D) 5 1/8 acres</button></li>
+        </ul>
+        <div class="q-explanation">
+          <strong>Correct Answer: B (5 3/4 acres)</strong><br><br>
+          Step 1: Following the precise method, separate the expressions and add the whole number components together first: 3 + 2 = 5.
+          <br><br>
+          Step 2: Isolate and evaluate the remaining fractional components by finding a common denominator: 1/2 + 1/4. Since 1/2 is equal to 2/4, you compute 2/4 + 1/4 = 3/4.
+          <br><br>
+          Step 3: Put the calculated whole numbers and fractional parts back together to achieve the final sum of 5 3/4.
+        </div>
+      </div>
+    </div>
+
+    <!-- READING PANEL -->
+    <div id="reading" class="tab-panel">
+      <div class="q-card" data-qindex="1">
+        <div class="q-number">Question 2</div>
+        <div class="q-skill">Craft and Structure / Contextual</div>
+        <div class="q-passage">
+          For decades, field botanists suspected that dense networks of subterranean root systems competing in small residential fields behaved symmetrically. However, recent botanical monitoring reveals that certain introduced species establish highly erratic root perimeters that remain entirely independent of neighboring plant boundaries, proving that subterranean plant interactions are far more dynamic than previously assumed.
+        </div>
+        <div class="q-text">
+          As used in the passage, what word most nearly replaces the word "erratic"?
+        </div>
+        <ul class="q-options">
+          <li><button onclick="checkAnswer(this, 0, 1)">A) predictable</button></li>
+          <li><button onclick="checkAnswer(this, 1, 1)">B) unpredictable</button></li>
+          <li><button onclick="checkAnswer(this, 2, 1)">C) cooperative</button></li>
+          <li><button onclick="checkAnswer(this, 3, 1)">D) sparse</button></li>
+        </ul>
+        <div class="q-explanation">
+          <strong>Correct Answer: B (unpredictable)</strong><br><br>
+          The text sets up a structural contrast between "symmetrically" (orderly/expected) and the behavior of these new root networks. Because these networks are described as independent and dynamic, "unpredictable" fits the context perfectly.
+        </div>
+      </div>
+    </div>
+
+    <!-- WRITING PANEL -->
+    <div id="writing" class="tab-panel">
+      <div class="q-card" data-qindex="2">
+        <div class="q-number">Question 3</div>
+        <div class="q-skill">Standard English Conventions / Punctuation</div>
+        <div class="q-text">
+          Linguists tracking ancient scripts often encounter heavily weathered clay surfaces; ________ they must rely on high-resolution multispectral imaging to uncover the faded textual layout beneath the mineral crust.
+        </div>
+        <ul class="q-options">
+          <li><button onclick="checkAnswer(this, 0, 2)">A) intentionally,</button></li>
+          <li><button onclick="checkAnswer(this, 1, 2)">B) consequently,</button></li>
+          <li><button onclick="checkAnswer(this, 2, 2)">C) instead,</button></li>
+          <li><button onclick="checkAnswer(this, 3, 2)">D) conversely,</button></li>
+        </ul>
+        <div class="q-explanation">
+          <strong>Correct Answer: B (consequently,)</strong><br><br>
+          The first clause details a specific problem (weathered surfaces), and the second clause details the immediate structural result of that problem (using specialized imaging). "Consequently" correctly establishes this cause-and-effect relationship.
+        </div>
+      </div>
+    </div>
+
+    <!-- PERFORMANCE TRACKER -->
+    <div class="study-score">
+      Total Progress: <span id="score-text">0 / 3</span> Problems Answered
+      <div class="score-bar"><div class="score-fill" id="score-fill"></div></div>
+    </div>
+  </section>
+
+  <!-- ── ENROLLMENT / INQUIRY FORM ── -->
+  <section class="enroll" id="enroll">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Schedule a Strategic Evaluation</h2>
     
-    if (answeredCards.has(card)) return;
-    answeredCards.add(card);
+    <form id="sat-form" onsubmit="handleFormSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="student-name">Student Full Name</label>
+          <input type="text" id="student-name" required placeholder="Alex Morgan" />
+        </div>
+        <div class="form-group">
+          <label for="parent-email">Contact Email</label>
+          <input type="email" id="parent-email" required placeholder="name@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="test-date">Target SAT Exam Date</label>
+          <select id="test-date" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="fall">Fall Testing Window</option>
+            <option value="spring">Spring Testing Window</option>
+            <option value="undecided">Undecided / Early Prep</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="current-score">Current Score or Baseline Goal</label>
+          <input type="text" id="current-score" placeholder="e.g., 1150 baseline / 1400 goal" />
+        </div>
+        <div class="form-group full">
+          <label for="notes">Specific Conceptual Focus Areas</label>
+          <textarea id="notes" placeholder="Tell me about any specific pacing difficulties, anxiety bottlenecks, or target areas you want to prioritize..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Request</button>
+        <p class="form-note">Submitting coordinates a direct availability calendar update within 24 business hours.</p>
+      </div>
+    </form>
+    
+    <div id="form-success">
+      Thank you! Your evaluation request coordinates have been logged. I will reach out within 24 business hours to lock in your diagnostic session.
+    </div>
+  </section>
 
-    const buttons = card.querySelectorAll('.q-options button');
-    buttons.forEach(btn => btn.disabled = true);
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>&copy; 2026 Digital SAT Preparation Portfolio. Built for clean structural execution. <a href="#home">Back to top</a></p>
+  </footer>
 
-    if (choice === correctLetter) {
-      button.classList.add('correct');
-      scores[tab]++;
-    } else {
-      button.classList.add('wrong');
-      buttons.forEach(btn => {
-        if(btn.outerHTML.includes(`'${correctLetter}'`)) {
-          btn.classList.add('show-correct');
-        }
-      });
+  <!-- ── INTERACTIVE APPLICATION SCRIPTS ── -->
+  <script>
+    // Tab switching engine
+    function switchTab(evt, tabId) {
+      const panels = document.querySelectorAll('.tab-panel');
+      const buttons = document.querySelectorAll('.tab-btn');
+      
+      panels.forEach(p => p.classList.remove('active'));
+      buttons.forEach(b => b.classList.remove('active'));
+      
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
     }
 
-    const explanation = card.querySelector('.q-explanation');
-    if (explanation) explanation.classList.add('visible');
+    // Dynamic quiz tracking state
+    const totalQuestions = 3;
+    const trackingState = {
+      answeredCount: 0,
+      responses: { 0: null, 1: null, 2: null },
+      solutions: [1, 1, 1] // Index of the correct choice for each card
+    };
 
-    document.getElementById(`${tab}-score-text`).innerText = scores[tab];
-    const progressPercent = (scores[tab] / totalQuestionsPerTab) * 100;
-    document.getElementById(`${tab}-score-fill`).style.width = progressPercent + '%';
-  }
+    function checkAnswer(btn, clickedIndex, questionIndex) {
+      // Avoid modifying states if this specific question block is already solved
+      if (trackingState.responses[questionIndex] !== null) return;
+      
+      trackingState.responses[questionIndex] = clickedIndex;
+      const card = document.querySelector(`[data-qindex="${questionIndex}"]`);
+      const buttons = card.querySelectorAll('.q-options button');
+      const correctAnswerIndex = trackingState.solutions[questionIndex];
 
-  function handleFormSubmit(event) {
-    event.preventDefault(); 
-    const form = event.target;
-    const data = new FormData(form);
-    const successBanner = document.getElementById('form-success');
+      // Disable the options in this block to secure selection
+      buttons.forEach(b => b.disabled = true);
 
-    fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        form.style.display = 'none'; 
-        successBanner.style.display = 'block'; 
+      if (clickedIndex === correctAnswerIndex) {
+        btn.classList.add('correct');
       } else {
-        alert("Oops! There was a problem processing your submission.");
+        btn.classList.add('wrong');
+        buttons[correctAnswerIndex].classList.add('show-correct');
       }
-    }).catch(error => {
-      alert("Connection error. Could not reach server.");
-    });
-  }
-</script>
 
+      // Display the hidden analytical text explanation block
+      const explanation = card.querySelector('.q-explanation');
+      if (explanation) explanation.classList.add('visible');
+
+      // Update calculations for progress tracking metrics
+      trackingState.answeredCount++;
+      updateTrackerDisplay();
+    }
+
+    function updateTrackerDisplay() {
+      document.getElementById('score-text').textContent = trackingState.answeredCount;
+      const percentage = (trackingState.answeredCount / totalQuestions) * 100;
+      document.getElementById('score-fill').style.width = percentage + '%';
+    }
+
+    // Process inquiry form submission pipeline
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('sat-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kristen L. Graham - Professional Tutor</title>
+    <title>Kristen L. Graham - Professional SAT Prep & Mathematics Tutoring</title>
     <style>
         :root {
             --primary: #1e3a8a;
@@ -12,7 +12,9 @@
             --light: #f8fafc;
             --accent: #f59e0b;
             --success: #10b981;
+            --success-light: #d1fae5;
             --danger: #ef4444;
+            --danger-light: #fee2e2;
             --gray: #64748b;
         }
 
@@ -34,7 +36,6 @@
             color: white;
             padding: 4rem 2rem;
             text-align: center;
-            position: relative;
         }
 
         .header-container {
@@ -120,7 +121,6 @@
 
         section h2 {
             color: var(--primary);
-            border-bottom: 3rem;
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
         }
@@ -142,6 +142,25 @@
         .card h3 {
             margin-bottom: 0.5rem;
             color: var(--dark);
+        }
+
+        .tips-list {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .tips-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tips-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
 
         .subject-toggle-container {
@@ -181,6 +200,7 @@
             border-radius: 8px;
             margin-bottom: 1.5rem;
             border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
 
         .question-text {
@@ -201,48 +221,86 @@
             align-items: center;
             gap: 0.5rem;
             cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: background 0.2s;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background-color: white;
+            transition: all 0.2s;
         }
 
         .option-item label:hover {
-            background-color: #e2e8f0;
+            background-color: #f1f5f9;
         }
 
-        .btn-submit {
-            display: block;
-            width: 100%;
+        /* Interactive grading classes applied dynamically via JS */
+        .option-item.correct-choice label {
+            background-color: var(--success-light) !important;
+            border-color: var(--success) !important;
+            color: #065f46;
+            font-weight: 600;
+        }
+
+        .option-item.incorrect-choice label {
+            background-color: var(--danger-light) !important;
+            border-color: var(--danger) !important;
+            color: #991b1b;
+        }
+
+        .explanation-box {
+            margin-top: 1rem;
             padding: 1rem;
-            background-color: var(--primary-light);
+            border-radius: 6px;
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary-light);
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn-submit-contact {
+            padding: 1rem;
+            background-color: var(--primary);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 2rem;
             transition: background 0.3s;
         }
 
-        .btn-submit:hover {
-            background-color: var(--primary);
-        }
-
-        .results-box {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .explanation {
-            margin-top: 0.5rem;
-            font-size: 0.95rem;
-            color: var(--gray);
-            display: none;
-            padding-left: 0.5rem;
-            border-left: 2px solid var(--gray);
+        .btn-submit-contact:hover {
+            background-color: var(--primary-light);
         }
 
         footer {
@@ -261,8 +319,8 @@
             <img src="Kirstene Photo.jpg" alt="Kristen L. Graham" class="profile-img">
             <div class="header-text">
                 <h1>Kristen L. Graham</h1>
-                <p>Expert Secondary Mathematics & Literacy Specialist</p>
-                <div class="rate-badge">$45 / Hour</div>
+                <p>Professional Digital SAT Prep & Secondary Mathematics Specialist</p>
+                <div class="rate-badge">$50 / Hour</div>
             </div>
         </div>
     </header>
@@ -270,37 +328,61 @@
     <nav>
         <a href="#about">About Me</a>
         <a href="#services">Services</a>
+        <a href="#tips">SAT Strategies</a>
         <a href="#practice">Interactive Practice</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         
         <section id="about">
             <h2>About Me</h2>
-            <p>Welcome! I am a dedicated professional tutor specializing in secondary-level education, including Algebra I, Geometry, Statistics, Reading Comprehension, and Writing development. My goal is to build structural confidence, simplify complex test frameworks, and help students maximize their performance goals through structured, personalized curriculum plans.</p>
+            <p>Welcome! I am a professional tutor and curriculum specialist dedicated to preparing secondary students for academic milestones, with an elite focus on the multi-modular Digital SAT layout. My instruction balances rigorous concept-building in Algebra, Geometry, and Statistics with structural language mechanics to maximize diagnostic growth scores and build overall test-taking endurance.</p>
         </section>
 
         <section id="services">
             <h2>Specialized Academic Programs</h2>
             <div class="grid">
                 <div class="card">
+                    <h3>Digital SAT Prep</h3>
+                    <p>Comprehensive strategy plans for both Math and Reading/Writing adaptive testing panels. Learn time-saving frameworks, elimination logic, and target high-yield problem variants.</p>
+                </div>
+                <div class="card">
                     <h3>Mathematics Mastery</h3>
-                    <p>Targeted core conceptual tracking across Algebra, Geometry, and Statistics frameworks to boost confidence and test metrics.</p>
+                    <p>Core instruction for Algebra I, Geometry, and Statistics. Designed to break down foundational gaps, clarify difficult proofs, and optimize homework/exam metrics.</p>
                 </div>
                 <div class="card">
-                    <h3>Critical Reading</h3>
-                    <p>Advanced textual analysis, reading comprehension strategies, structural logic identification, and vocabulary support.</p>
+                    <h3>Literacy & Writing Support</h3>
+                    <p>Advanced textual reading comprehension tracking, vocabulary contextual mapping, and essay sentence structure refinement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips">
+            <h2>High-Yield Digital SAT Tips & Strategies</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Digital SAT Math Hacks</h3>
+                    <ul class="tips-list">
+                        <li><strong>Circle Equations:</strong> Always convert expressions into standard form, (x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup>, by completing the square for x and y. This instantly reveals the exact center coordinates (h, k) and the true radius value r.</li>
+                        <li><strong>Desmos Advantage:</strong> For system of equations questions, graph them instantly to find intersection coordinates instead of solving long variables algebraically.</li>
+                        <li><strong>Exponent Rule Tracking:</strong> When multiplying identical bases, add the exponents together. When raising a power to a power, multiply the exponents.</li>
+                    </ul>
                 </div>
                 <div class="card">
-                    <h3>Analytical Writing</h3>
-                    <p>Cohesive essay structure mapping, sentence mechanics refinement, grammatical precision, and structured rhetorical support.</p>
+                    <h3>Reading & Writing Hacks</h3>
+                    <ul class="tips-list">
+                        <li><strong>Punctuation Semicolons:</strong> A semicolon behaves exactly like a period; it must cleanly connect two complete, standalone sentences. If either side is incomplete, eliminate it.</li>
+                        <li><strong>Transition Words:</strong> Read the text before and after the blank space to determine the precise logical flow (Cause/Effect, Contrast, or Addition) before reading options.</li>
+                        <li><strong>Contextual Vocabulary:</strong> Replace complex target words with a simple word of your own first, then find the option that matches your internal synonym.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="practice">
-            <h2>Interactive Sample Modules</h2>
-            <p style="margin-bottom: 1.5rem;">Select a topic below to test your skills with 10 diagnostic sample questions per topic.</p>
+            <h2>Interactive Diagnostic Modules</h2>
+            <p style="margin-bottom: 1.5rem;">Click on any option to immediately test your response. The system will auto-grade your choice instantly and reveal strategic explanations.</p>
 
             <div class="subject-toggle-container">
                 <button class="subject-btn active" onclick="switchSubject('math')">Mathematics</button>
@@ -310,364 +392,369 @@
 
             <!-- MATHEMATICS PANEL -->
             <div id="panel-math" class="subject-panel active">
-                <form id="form-math" onsubmit="gradeQuiz(event, 'math')">
-                    
-                    <div class="question-block">
-                        <p class="question-text">1. Which of the following represents the standard form equation of a circle centered at (3, -4) with a radius of 5?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m1" value="A"> (x - 3)<sup>2</sup> + (y + 4)<sup>2</sup> = 5</label></li>
-                            <li class="option-item"><label><input type="radio" name="m1" value="B"> (x + 3)<sup>2</sup> + (y - 4)<sup>2</sup> = 25</label></li>
-                            <li class="option-item"><label><input type="radio" name="m1" value="C" data-correct="true"> (x - 3)<sup>2</sup> + (y + 4)<sup>2</sup> = 25</label></li>
-                            <li class="option-item"><label><input type="radio" name="m1" value="D"> (x - 3)<sup>2</sup> - (y + 4)<sup>2</sup> = 25</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The standard equation of a circle is (x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup>. Substituting h = 3, k = -4, and r = 5 yields (x - 3)<sup>2</sup> + (y + 4)<sup>2</sup> = 25.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">1. Which of the following represents the standard form equation of a circle centered at (3, -4) with a radius of 5?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m1" value="A" onclick="checkAnswer(this)"> (x - 3)<sup>2</sup> + (y + 4)<sup>2</sup> = 5</label></li>
+                        <li class="option-item"><label><input type="radio" name="m1" value="B" onclick="checkAnswer(this)"> (x + 3)<sup>2</sup> + (y - 4)<sup>2</sup> = 25</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m1" value="C" onclick="checkAnswer(this)"> (x - 3)<sup>2</sup> + (y + 4)<sup>2</sup> = 25</label></li>
+                        <li class="option-item"><label><input type="radio" name="m1" value="D" onclick="checkAnswer(this)"> (x - 3)<sup>2</sup> - (y + 4)<sup>2</sup> = 25</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The standard form equation of a circle is (x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup>. Substituting h = 3, k = -4, and r = 5 yields (x - 3)<sup>2</sup> + (y + 4)<sup>2</sup> = 5<sup>2</sup>, which matches 25.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">2. Solve the following equation for x: 3x - 7 = 5x + 9</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m2" value="A"> x = 1</label></li>
-                            <li class="option-item"><label><input type="radio" name="m2" value="B" data-correct="true"> x = -8</label></li>
-                            <li class="option-item"><label><input type="radio" name="m2" value="C"> x = 8</label></li>
-                            <li class="option-item"><label><input type="radio" name="m2" value="D"> x = -1</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Subtract 3x from both sides to get -7 = 2x + 9. Subtract 9 from both sides to get -16 = 2x. Dividing by 2 yields x = -8.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">2. Solve the following linear equation for x: 3x - 7 = 5x + 9</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m2" value="A" onclick="checkAnswer(this)"> x = 1</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m2" value="B" onclick="checkAnswer(this)"> x = -8</label></li>
+                        <li class="option-item"><label><input type="radio" name="m2" value="C" onclick="checkAnswer(this)"> x = 8</label></li>
+                        <li class="option-item"><label><input type="radio" name="m2" value="D" onclick="checkAnswer(this)"> x = -1</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Subtract 3x from both sides to find -7 = 2x + 9. Next, subtract 9 from both sides to obtain -16 = 2x. Dividing by 2 isolated the variable as x = -8.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">3. Find the slope of the line passing through the points (2, 5) and (4, 11).</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m3" value="A"> m = 2</label></li>
-                            <li class="option-item"><label><input type="radio" name="m3" value="B" data-correct="true"> m = 3</label></li>
-                            <li class="option-item"><label><input type="radio" name="m3" value="C"> m = 6</label></li>
-                            <li class="option-item"><label><input type="radio" name="m3" value="D"> m = 1/3</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Use the slope formula m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>). Thus, m = (11 - 5) / (4 - 2) = 6 / 2 = 3.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">3. Find the slope of the coordinate line passing through the points (2, 5) and (4, 11).</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m3" value="A" onclick="checkAnswer(this)"> m = 2</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m3" value="B" onclick="checkAnswer(this)"> m = 3</label></li>
+                        <li class="option-item"><label><input type="radio" name="m3" value="C" onclick="checkAnswer(this)"> m = 6</label></li>
+                        <li class="option-item"><label><input type="radio" name="m3" value="D" onclick="checkAnswer(this)"> m = 1/3</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Use the slope formula m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>). Here, m = (11 - 5) / (4 - 2) = 6 / 2 = 3.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">4. What are the solutions to the quadratic equation x<sup>2</sup> - 9 = 0?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m4" value="A"> x = 9 and x = -9</label></li>
-                            <li class="option-item"><label><input type="radio" name="m4" value="B"> x = 3 only</label></li>
-                            <li class="option-item"><label><input type="radio" name="m4" value="C" data-correct="true"> x = 3 and x = -3</label></li>
-                            <li class="option-item"><label><input type="radio" name="m4" value="D"> x = 4.5 and x = -4.5</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Factoring the difference of squares gives (x - 3)(x + 3) = 0, which yields x = 3 and x = -3.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">4. What are the individual real roots to the quadratic expression x<sup>2</sup> - 9 = 0?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m4" value="A" onclick="checkAnswer(this)"> x = 9 and x = -9</label></li>
+                        <li class="option-item"><label><input type="radio" name="m4" value="B" onclick="checkAnswer(this)"> x = 3 only</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m4" value="C" onclick="checkAnswer(this)"> x = 3 and x = -3</label></li>
+                        <li class="option-item"><label><input type="radio" name="m4" value="D" onclick="checkAnswer(this)"> x = 4.5 and x = -4.5</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Factoring the expression as a perfect difference of squares gives (x - 3)(x + 3) = 0, meaning x equals 3 or -3.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">5. Simplify the expression: (2x<sup>3</sup>y<sup>2</sup>)(4xy<sup>5</sup>)</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m5" value="A" data-correct="true"> 8x<sup>4</sup>y<sup>7</sup></label></li>
-                            <li class="option-item"><label><input type="radio" name="m5" value="B"> 6x<sup>4</sup>y<sup>7</sup></label></li>
-                            <li class="option-item"><label><input type="radio" name="m5" value="C"> 8x<sup>3</sup>y<sup>10</sup></label></li>
-                            <li class="option-item"><label><input type="radio" name="m5" value="D"> 6x<sup>3</sup>y<sup>5</sup></label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Multiply coefficients (2 * 4 = 8) and add the corresponding exponents for base x (3 + 1 = 4) and base y (2 + 5 = 7).</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">5. Simplify the expression following exponential laws: (2x<sup>3</sup>y<sup>2</sup>)(4xy<sup>5</sup>)</p>
+                    <ul class="options-list">
+                        <li class="option-item correct-answer"><label><input type="radio" name="m5" value="A" onclick="checkAnswer(this)"> 8x<sup>4</sup>y<sup>7</sup></label></li>
+                        <li class="option-item"><label><input type="radio" name="m5" value="B" onclick="checkAnswer(this)"> 6x<sup>4</sup>y<sup>7</sup></label></li>
+                        <li class="option-item"><label><input type="radio" name="m5" value="C" onclick="checkAnswer(this)"> 8x<sup>3</sup>y<sup>10</sup></label></li>
+                        <li class="option-item"><label><input type="radio" name="m5" value="D" onclick="checkAnswer(this)"> 6x<sup>3</sup>y<sup>5</sup></label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Product rules mean you multiply coefficients (2 * 4 = 8) and add tracking exponents for base x (3 + 1 = 4) and base y (2 + 5 = 7).</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">6. If f(x) = 2x<sup>2</sup> - 3x + 5, determine the value of f(-2).</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m6" value="A"> 3</label></li>
-                            <li class="option-item"><label><input type="radio" name="m6" value="B"> 7</label></li>
-                            <li class="option-item"><label><input type="radio" name="m6" value="C" data-correct="true"> 19</label></li>
-                            <li class="option-item"><label><input type="radio" name="m6" value="D"> 11</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Evaluate f(-2) = 2(-2)<sup>2</sup> - 3(-2) + 5 = 2(4) + 6 + 5 = 8 + 6 + 5 = 19.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">6. If f(x) = 2x<sup>2</sup> - 3x + 5, determine the exact value of f(-2).</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m6" value="A" onclick="checkAnswer(this)"> 3</label></li>
+                        <li class="option-item"><label><input type="radio" name="m6" value="B" onclick="checkAnswer(this)"> 7</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m6" value="C" onclick="checkAnswer(this)"> 19</label></li>
+                        <li class="option-item"><label><input type="radio" name="m6" value="D" onclick="checkAnswer(this)"> 11</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Substitute -2 directly: 2(-2)<sup>2</sup> - 3(-2) + 5 = 2(4) + 6 + 5 = 8 + 6 + 5 = 19.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">7. What is the value of x in the right triangle if the hypotenuse is 10 and one leg is 6?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m7" value="A"> 4</label></li>
-                            <li class="option-item"><label><input type="radio" name="m7" value="B" data-correct="true"> 8</label></li>
-                            <li class="option-item"><label><input type="radio" name="m7" value="C"> 7</label></li>
-                            <li class="option-item"><label><input type="radio" name="m7" value="D"> 64</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Using the Pythagorean theorem: a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup> -> 6<sup>2</sup> + x<sup>2</sup> = 10<sup>2</sup> -> 36 + x<sup>2</sup> = 100 -> x<sup>2</sup> = 64 -> x = 8.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">7. What is the value of missing leg x in a right triangle if the hypotenuse is 10 and one given leg is 6?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m7" value="A" onclick="checkAnswer(this)"> 4</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m7" value="B" onclick="checkAnswer(this)"> 8</label></li>
+                        <li class="option-item"><label><input type="radio" name="m7" value="C" onclick="checkAnswer(this)"> 7</label></li>
+                        <li class="option-item"><label><input type="radio" name="m7" value="D" onclick="checkAnswer(this)"> 64</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Using the Pythagorean theorem: 6<sup>2</sup> + x<sup>2</sup> = 10<sup>2</sup>, which gives 36 + x<sup>2</sup> = 100. Thus x<sup>2</sup> = 64, meaning x = 8.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">8. If log<sub>2</sub>(x) = 5, what is the value of x?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m8" value="A"> 10</label></li>
-                            <li class="option-item"><label><input type="radio" name="m8" value="B"> 25</label></li>
-                            <li class="option-item"><label><input type="radio" name="m8" value="C" data-correct="true"> 32</label></li>
-                            <li class="option-item"><label><input type="radio" name="m8" value="D"> 64</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Convert the logarithmic statement into an exponential equation: x = 2<sup>5</sup>. Evaluating 2<sup>5</sup> yields 32.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">8. If log<sub>2</sub>(x) = 5, what is the value of independent variable x?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m8" value="A" onclick="checkAnswer(this)"> 10</label></li>
+                        <li class="option-item"><label><input type="radio" name="m8" value="B" onclick="checkAnswer(this)"> 25</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m8" value="C" onclick="checkAnswer(this)"> 32</label></li>
+                        <li class="option-item"><label><input type="radio" name="m8" value="D" onclick="checkAnswer(this)"> 64</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Rewrite into logarithmic exponential equivalence form: x = 2<sup>5</sup>. Evaluating 2 * 2 * 2 * 2 * 2 yields 32.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">9. A bag contains 3 red marbles, 5 blue marbles, and 2 green marbles. What is the probability of choosing a red marble?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m9" value="A" data-correct="true"> 3/10</label></li>
-                            <li class="option-item"><label><input type="radio" name="m9" value="B"> 1/3</label></li>
-                            <li class="option-item"><label><input type="radio" name="m9" value="C"> 1/2</label></li>
-                            <li class="option-item"><label><input type="radio" name="m9" value="D"> 3/7</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Total number of marbles is 3 + 5 + 2 = 10. The number of red marbles is 3, making the probability 3/10.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">9. A tracking box contains 3 red items, 5 blue items, and 2 green items. What is the probability of selecting a red item?</p>
+                    <ul class="options-list">
+                        <li class="option-item correct-answer"><label><input type="radio" name="m9" value="A" onclick="checkAnswer(this)"> 3/10</label></li>
+                        <li class="option-item"><label><input type="radio" name="m9" value="B" onclick="checkAnswer(this)"> 1/3</label></li>
+                        <li class="option-item"><label><input type="radio" name="m9" value="C" onclick="checkAnswer(this)"> 1/2</label></li>
+                        <li class="option-item"><label><input type="radio" name="m9" value="D" onclick="checkAnswer(this)"> 3/7</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Total possible outcome events = 3 + 5 + 2 = 10. The targeted outcome count is 3, creating a fractional probability of 3/10.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">10. What is the sum of the interior angles of a convex hexagon (6 sides)?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="m10" value="A"> 360°</label></li>
-                            <li class="option-item"><label><input type="radio" name="m10" value="B"> 540°</label></li>
-                            <li class="option-item"><label><input type="radio" name="m10" value="C" data-correct="true"> 720°</label></li>
-                            <li class="option-item"><label><input type="radio" name="m10" value="D"> 900°</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Use the interior angle sum formula: (n - 2) * 180°. Substituting n = 6 gives (6 - 2) * 180° = 4 * 180° = 720°.</div>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Submit Math Quiz</button>
-                </form>
-                <div id="results-math" class="results-box"></div>
+                <div class="question-block">
+                    <p class="question-text">10. What is the interior angle sum total within a convex geometric hexagon (6-sided polygon)?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="m10" value="A" onclick="checkAnswer(this)"> 360°</label></li>
+                        <li class="option-item"><label><input type="radio" name="m10" value="B" onclick="checkAnswer(this)"> 540°</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="m10" value="C" onclick="checkAnswer(this)"> 720°</label></li>
+                        <li class="option-item"><label><input type="radio" name="m10" value="D" onclick="checkAnswer(this)"> 900°</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Apply polygon sum structural rules: (n - 2) * 180°. For a hexagon, (6 - 2) * 180° = 4 * 180° = 720°.</div>
+                </div>
             </div>
 
             <!-- READING PANEL -->
             <div id="panel-reading" class="subject-panel">
-                <form id="form-reading" onsubmit="gradeQuiz(event, 'reading')">
-                    
-                    <div class="question-block">
-                        <p class="question-text"><strong>Passage for Questions 1-3:</strong> The shift toward digital library systems has fundamentally altered how scientific researchers evaluate data, prioritizing immediate desktop keyword accessibility over methodical physical archival exploration.</p>
-                        <p class="question-text">1. As used in the context of the passage, what does the word "methodical" most closely mean?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r1" value="A"> Hasty</label></li>
-                            <li class="option-item"><label><input type="radio" name="r1" value="B" data-correct="true"> Systematic and careful</label></li>
-                            <li class="option-item"><label><input type="radio" name="r1" value="C"> Outdated</label></li>
-                            <li class="option-item"><label><input type="radio" name="r1" value="D"> Automated</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: "Methodical" refers to work completed using a careful, systematic, and orderly procedure.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text"><strong>Passage for Questions 1-3:</strong> The shift toward digital library systems has fundamentally altered how scientific researchers evaluate data, prioritizing immediate desktop keyword accessibility over methodical physical archival exploration.</p>
+                    <p class="question-text">1. As used in the context of the passage, what does the word "methodical" most closely mean?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r1" value="A" onclick="checkAnswer(this)"> Hasty</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r1" value="B" onclick="checkAnswer(this)"> Systematic and careful</label></li>
+                        <li class="option-item"><label><input type="radio" name="r1" value="C" onclick="checkAnswer(this)"> Outdated</label></li>
+                        <li class="option-item"><label><input type="radio" name="r1" value="D" onclick="checkAnswer(this)"> Automated</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: "Methodical" describes actions conducted according to a careful, systematic blueprint.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">2. The author implies that physical archival exploration is characterized by which of the following?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r2" value="A"> Instant results</label></li>
-                            <li class="option-item"><label><input type="radio" name="r2" value="B" data-correct="true"> Deliberate, structured tracking</label></li>
-                            <li class="option-item"><label><input type="radio" name="r2" value="C"> Complete reliance on automated tools</label></li>
-                            <li class="option-item"><label><input type="radio" name="r2" value="D"> Inferior accuracy</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: By contrasting immediate desktop keyword accessibility with "methodical" archival work, the passage suggests physical exploration is deliberate and structured.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">2. The author implies that physical archival exploration is characterized by which of the following traits?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r2" value="A" onclick="checkAnswer(this)"> Instant results</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r2" value="B" onclick="checkAnswer(this)"> Deliberate, structured tracking</label></li>
+                        <li class="option-item"><label><input type="radio" name="r2" value="C" onclick="checkAnswer(this)"> Complete reliance on automated tools</label></li>
+                        <li class="option-item"><label><input type="radio" name="r2" value="D" onclick="checkAnswer(this)"> Inferior accuracy</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: By setting up a logical contrast with "immediate" tools, archival exploration is framed as demanding deliberate tracking steps.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">3. Which choice best describes the primary structural shift highlighted by the author?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r3" value="A" data-correct="true"> From physical processes to quick digital research models</label></li>
-                            <li class="option-item"><label><input type="radio" name="r3" value="B"> From scientific inquiry to historical research models</label></li>
-                            <li class="option-item"><label><input type="radio" name="r3" value="C"> From desktop computing to collaborative mobile computing</label></li>
-                            <li class="option-item"><label><input type="radio" name="r3" value="D"> From public libraries to corporate networks</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The text outlines a structural evolution moving from physical archives to contemporary digital keyword access frameworks.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">3. Which choice best describes the primary macro structural transition highlighted by the author?</p>
+                    <ul class="options-list">
+                        <li class="option-item correct-answer"><label><input type="radio" name="r3" value="A" onclick="checkAnswer(this)"> From physical processes to quick digital research models</label></li>
+                        <li class="option-item"><label><input type="radio" name="r3" value="B" onclick="checkAnswer(this)"> From scientific inquiry to historical research models</label></li>
+                        <li class="option-item"><label><input type="radio" name="r3" value="C" onclick="checkAnswer(this)"> From desktop computing to collaborative mobile computing</label></li>
+                        <li class="option-item"><label><input type="radio" name="r3" value="D" onclick="checkAnswer(this)"> From public libraries to corporate networks</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The whole sentence maps an overall tracking switch from old physical archive models to fast desktop search access.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text"><strong>Passage for Questions 4-6:</strong> Environmental balance relies on subtle ecological variables. When apex predators are removed from a food chain, prey populations often multiply exponentially, leading to severe vegetation loss and subsequent topsoil erosion.</p>
-                        <p class="question-text">4. Based on the text, what is a direct consequence of apex predator removal?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r4" value="A"> An immediate reduction in prey populations</label></li>
-                            <li class="option-item"><label><input type="radio" name="r4" value="B" data-correct="true"> Rapid expansion of prey numbers</label></li>
-                            <li class="option-item"><label><input type="radio" name="r4" value="C"> Sudden stabilization of topsoil layers</label></li>
-                            <li class="option-item"><label><input type="radio" name="r4" value="D"> Increased diversity of local flora</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The text states that when apex predators are removed, "prey populations often multiply exponentially."</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text"><strong>Passage for Questions 4-6:</strong> Environmental balance relies on subtle ecological variables. When apex predators are removed from a food chain, prey populations often multiply exponentially, leading to severe vegetation loss and subsequent topsoil erosion.</p>
+                    <p class="question-text">4. Based on the text, what is a direct consequence of apex predator removal models?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r4" value="A" onclick="checkAnswer(this)"> An immediate reduction in prey populations</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r4" value="B" onclick="checkAnswer(this)"> Rapid expansion of prey numbers</label></li>
+                        <li class="option-item"><label><input type="radio" name="r4" value="C" onclick="checkAnswer(this)"> Sudden stabilization of topsoil layers</label></li>
+                        <li class="option-item"><label><input type="radio" name="r4" value="D" onclick="checkAnswer(this)"> Increased diversity of local flora</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The author directly writes that removal models lead to prey multiplying exponentially.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">5. The passage suggests that topsoil erosion is ultimately linked to:</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r5" value="A"> Too many apex predators hunting at once</label></li>
-                            <li class="option-item"><label><input type="radio" name="r5" value="B"> A drop in local birth rates</label></li>
-                            <li class="option-item"><label><input type="radio" name="r5" value="C" data-correct="true"> The destruction of local plant life by unchecked prey populations</label></li>
-                            <li class="option-item"><label><input type="radio" name="r5" value="D"> Climate change patterns affecting rainfall</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Unchecked prey populations cause "severe vegetation loss," which directly leads to "subsequent topsoil erosion."</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">5. The passage suggests that ultimate topsoil erosion issues are structurally linked to:</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r5" value="A" onclick="checkAnswer(this)"> Too many apex predators hunting at once</label></li>
+                        <li class="option-item"><label><input type="radio" name="r5" value="B" onclick="checkAnswer(this)"> A drop in local birth rates</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r5" value="C" onclick="checkAnswer(this)"> The destruction of local plant life by unchecked prey populations</label></li>
+                        <li class="option-item"><label><input type="radio" name="r5" value="D" onclick="checkAnswer(this)"> Climate change patterns affecting rainfall</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Overpopulated prey choices create clear vegetation loss, which logically triggers the erosion effects.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">6. As used in the context, what does "exponentially" mean?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r6" value="A"> Minimally</label></li>
-                            <li class="option-item"><label><input type="radio" name="r6" value="B"> Predictably</label></li>
-                            <li class="option-item"><label><input type="radio" name="r6" value="C" data-correct="true"> At an increasingly rapid rate</label></li>
-                            <li class="option-item"><label><input type="radio" name="r6" value="D"> Negative trend direction</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: In this context, multiplying exponentially means growing at an increasingly rapid rate.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">6. As used in the context, what does the word "exponentially" mean?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r6" value="A" onclick="checkAnswer(this)"> Minimally</label></li>
+                        <li class="option-item"><label><input type="radio" name="r6" value="B" onclick="checkAnswer(this)"> Predictably</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r6" value="C" onclick="checkAnswer(this)"> At an increasingly rapid rate</label></li>
+                        <li class="option-item"><label><input type="radio" name="r6" value="D" onclick="checkAnswer(this)"> Negative trend direction</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Multiplying exponentially implies compound acceleration, growing at a highly rapid rate.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text"><strong>Passage for Questions 7-10:</strong> Regular exercise promotes neuroplasticity, which is the brain's unique ability to reorganize itself by forming new neural pathways. This adaptability enhances learning metrics and long-term memory metrics.</p>
-                        <p class="question-text">7. What is the primary focus of this passage?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r7" value="A"> How the brain shrinks over time</label></li>
-                            <li class="option-item"><label><input type="radio" name="r7" value="B" data-correct="true"> The link between physical activity and brain adaptability</label></li>
-                            <li class="option-item"><label><input type="radio" name="r7" value="C"> Dietary trends that boost memory performance</label></li>
-                            <li class="option-item"><label><input type="radio" name="r7" value="D"> The history of neurological medicine</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The passage outlines how regular exercise influences neuroplasticity and cognitive function.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text"><strong>Passage for Questions 7-10:</strong> Regular exercise promotes neuroplasticity, which is the brain's unique ability to reorganize itself by forming new neural pathways. This adaptability enhances learning metrics and long-term memory metrics.</p>
+                    <p class="question-text">7. What is the primary operational focus of this passage?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r7" value="A" onclick="checkAnswer(this)"> How the brain shrinks over time</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r7" value="B" onclick="checkAnswer(this)"> The link between physical activity and brain adaptability</label></li>
+                        <li class="option-item"><label><input type="radio" name="r7" value="C" onclick="checkAnswer(this)"> Dietary trends that boost memory performance</label></li>
+                        <li class="option-item"><label><input type="radio" name="r7" value="D" onclick="checkAnswer(this)"> The history of neurological medicine</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The paragraph maps out how routine physical exercise sets structural cognitive neuroplasticity benefits in motion.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">8. According to the text, what is "neuroplasticity"?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r8" value="A"> A type of muscular tissue degeneration</label></li>
-                            <li class="option-item"><label><input type="radio" name="r8" value="B" data-correct="true"> The brain's capability to form new neural pathways</label></li>
-                            <li class="option-item"><label><input type="radio" name="r8" value="C"> A specific psychological stress response</label></li>
-                            <li class="option-item"><label><input type="radio" name="r8" value="D"> A temporary loss of cognitive function</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The passage explicitly defines neuroplasticity as "the brain's unique ability to reorganize itself by forming new neural pathways."</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">8. According to the text, what is "neuroplasticity" structurally defined as?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r8" value="A" onclick="checkAnswer(this)"> A type of muscular tissue degeneration</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r8" value="B" onclick="checkAnswer(this)"> The brain's capability to form new neural pathways</label></li>
+                        <li class="option-item"><label><input type="radio" name="r8" value="C" onclick="checkAnswer(this)"> A specific psychological stress response</label></li>
+                        <li class="option-item"><label><input type="radio" name="r8" value="D" onclick="checkAnswer(this)"> A temporary loss of cognitive function</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The author explicitly clarifies that it means the unique power to build new internal neural pathways.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">9. Which cognitive benefit is directly mentioned as an outcome of neuroplasticity?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r9" value="A"> Reduced stress levels</label></li>
-                            <li class="option-item"><label><input type="radio" name="r9" value="B" data-correct="true"> Enhanced learning and long-term memory</label></li>
-                            <li class="option-item"><label><input type="radio" name="r9" value="C"> Improved spatial awareness metrics</label></li>
-                            <li class="option-item"><label><input type="radio" name="r9" value="D"> Rapid reflex responses</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The final sentence specifies that this adaptability enhances learning metrics and long-term memory metrics.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">9. Which tracking benefit is highlighted as an outcome of neuroplasticity mechanisms?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r9" value="A" onclick="checkAnswer(this)"> Reduced stress levels</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r9" value="B" onclick="checkAnswer(this)"> Enhanced learning and long-term memory</label></li>
+                        <li class="option-item"><label><input type="radio" name="r9" value="C" onclick="checkAnswer(this)"> Improved spatial awareness metrics</label></li>
+                        <li class="option-item"><label><input type="radio" name="r9" value="D" onclick="checkAnswer(this)"> Rapid reflex responses</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The conclusion says it specifically enhances educational learning patterns and human memory metrics.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">10. The tone of the passage can best be described as:</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="r10" value="A"> Sarcastic</label></li>
-                            <li class="option-item"><label><input type="radio" name="r10" value="B"> Skeptical</label></li>
-                            <li class="option-item"><label><input type="radio" name="r10" value="C" data-correct="true"> Informative and scientific</label></li>
-                            <li class="option-item"><label><input type="radio" name="r10" value="D"> Emotional and defensive</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The passage presents factual, objective information about brain science in a clear, informative tone.</div>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Submit Reading Quiz</button>
-                </form>
-                <div id="results-reading" class="results-box"></div>
+                <div class="question-block">
+                    <p class="question-text">10. The text author's macro tone matches which definition?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="r10" value="A" onclick="checkAnswer(this)"> Sarcastic</label></li>
+                        <li class="option-item"><label><input type="radio" name="r10" value="B" onclick="checkAnswer(this)"> Skeptical</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="r10" value="C" onclick="checkAnswer(this)"> Informative and scientific</label></li>
+                        <li class="option-item"><label><input type="radio" name="r10" value="D" onclick="checkAnswer(this)"> Emotional and defensive</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The structural style relies on objective definitions and scientific cause structures, maintaining an informative tone.</div>
+                </div>
             </div>
 
             <!-- WRITING PANEL -->
             <div id="panel-writing" class="subject-panel">
-                <form id="form-writing" onsubmit="gradeQuiz(event, 'writing')">
-                    
-                    <div class="question-block">
-                        <p class="question-text">1. Choose the word that correctly completes the sentence: The team members argued that ______ project proposal was chosen because it was the most realistic option.</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w1" value="A"> there</label></li>
-                            <li class="option-item"><label><input type="radio" name="w1" value="B" data-correct="true"> their</label></li>
-                            <li class="option-item"><label><input type="radio" name="w1" value="C"> they're</label></li>
-                            <li class="option-item"><label><input type="radio" name="w1" value="D"> theirs</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: "Their" is the possessive pronoun needed to modify the noun phrase "project proposal."</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">1. Choose the proper pronoun: The team members argued that ______ project proposal was chosen because it was the most realistic option.</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w1" value="A" onclick="checkAnswer(this)"> there</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w1" value="B" onclick="checkAnswer(this)"> their</label></li>
+                        <li class="option-item"><label><input type="radio" name="w1" value="C" onclick="checkAnswer(this)"> they're</label></li>
+                        <li class="option-item"><label><input type="radio" name="w1" value="D" onclick="checkAnswer(this)"> theirs</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: The possessive plural determiner "their" correctly highlights ownership of the matching noun project block.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">2. Identify the sentence that completely avoids structural grammatical errors.</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w2" value="A"> Running down the street, my hat blew off my head into a puddle.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w2" value="B"> Every one of the students have completed the assigned modules.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w2" value="C" data-correct="true"> Despite the heavy rain, the event coordinators decided to proceed with the scheduled outdoor tournament.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w2" value="D"> She likes reading, swimming, and to go on long hikes.</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Option C is structural error-free. A contains a dangling modifier; B has a subject-verb agreement error ("Every one... has"); D breaks parallel structure conventions.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">2. Identify the tracking choice that completely avoids structural grammar errors.</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w2" value="A" onclick="checkAnswer(this)"> Running down the street, my hat blew off my head into a puddle.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w2" value="B" onclick="checkAnswer(this)"> Every one of the students have completed the assigned modules.</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w2" value="C" onclick="checkAnswer(this)"> Despite the heavy rain, the event coordinators decided to proceed with the scheduled outdoor tournament.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w2" value="D" onclick="checkAnswer(this)"> She likes reading, swimming, and to go on long hikes.</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Option C matches all syntactic laws. Choice A contains a dangerous dangling modifier; B errors in subject singular verbs; D violates simple list parallelism.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">3. Which of the following sentences uses punctuation correctly?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w3" value="A"> The store carried apples, oranges and pears, however, it lacked bananas.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w3" value="B" data-correct="true"> The store carried apples, oranges, and pears; however, it lacked bananas.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w3" value="C"> The store carried apples oranges and pears however it lacked bananas.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w3" value="D"> The store carried apples, oranges, and pears, however it lacked bananas.</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: A semicolon is required before a conjunctive adverb like "however" when connecting two independent clauses, followed by a comma.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">3. Which structural layout utilizes punctuation marks correctly?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w3" value="A" onclick="checkAnswer(this)"> The store carried apples, oranges and pears, however, it lacked bananas.</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w3" value="B" onclick="checkAnswer(this)"> The store carried apples, oranges, and pears; however, it lacked bananas.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w3" value="C" onclick="checkAnswer(this)"> The store carried apples oranges and pears however it lacked bananas.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w3" value="D" onclick="checkAnswer(this)"> The store carried apples, oranges, and pears, however it lacked bananas.</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Joining two full clauses requires a strong semicolon boundary before a tracking conjunctive adverb.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">4. Choose the best replacement for the underlined word: The corporate policy was written to be intentional, clear, and <u>verbose</u> so that nobody would misunderstand it.</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w4" value="A"> wordy</label></li>
-                            <li class="option-item"><label><input type="radio" name="w4" value="B"> tedious</label></li>
-                            <li class="option-item"><label><input type="radio" name="w4" value="C" data-correct="true"> concise</label></li>
-                            <li class="option-item"><label><input type="radio" name="w4" value="D"> prolonged</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: To avoid misunderstanding, a policy should be "concise" (brief and clear) rather than "verbose" (unnecessarily wordy).</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">4. Select the best replacement alternative: The corporate policy was written to be intentional, clear, and <u>verbose</u> so that nobody would misunderstand it.</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w4" value="A" onclick="checkAnswer(this)"> wordy</label></li>
+                        <li class="option-item"><label><input type="radio" name="w4" value="B" onclick="checkAnswer(this)"> tedious</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w4" value="C" onclick="checkAnswer(this)"> concise</label></li>
+                        <li class="option-item"><label><input type="radio" name="w4" value="D" onclick="checkAnswer(this)"> prolonged</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: To prevent user confusion, policy frameworks seek "concise" clarity rather than long, wordy "verbose" sentences.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">5. Choose the correct verb form: Neither the manager nor the employees ______ present at the safety meeting yesterday morning.</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w5" value="A"> was</label></li>
-                            <li class="option-item"><label><input type="radio" name="w5" value="B" data-correct="true"> were</label></li>
-                            <li class="option-item"><label><input type="radio" name="w5" value="C"> is</label></li>
-                            <li class="option-item"><label><input type="radio" name="w5" value="D"> are</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: When a subject is joined by "neither... nor," the verb agrees with the closer subject. "Employees" is plural, so the plural past-tense verb "were" is correct.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">5. Complete the verb choice: Neither the manager nor the employees ______ present at the safety meeting yesterday morning.</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w5" value="A" onclick="checkAnswer(this)"> was</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w5" value="B" onclick="checkAnswer(this)"> were</label></li>
+                        <li class="option-item"><label><input type="radio" name="w5" value="C" onclick="checkAnswer(this)"> is</label></li>
+                        <li class="option-item"><label><input type="radio" name="w5" value="D" onclick="checkAnswer(this)"> are</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Correlative structures like "neither/nor" mandate matching the verb tense to the nearest subject noun ("employees" = plural past "were").</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">6. Which sentence represents a run-on sentence pattern error?</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w6" value="A"> I wanted to go out for ice cream, but the shop was already closed.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w6" value="B"> Although it was late, we finished our project.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w6" value="C" data-correct="true"> The sun was setting beautifully over the ocean we stopped to take a couple of pictures.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w6" value="D"> Since the train was delayed, I read my book.</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Option C incorrectly joins two independent clauses without any punctuation or coordinating conjunctions.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">6. Which option features a distinct run-on sentence clause integration error?</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w6" value="A" onclick="checkAnswer(this)"> I wanted to go out for ice cream, but the shop was already closed.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w6" value="B" onclick="checkAnswer(this)"> Although it was late, we finished our project.</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w6" value="C" onclick="checkAnswer(this)"> The sun was setting beautifully over the ocean we stopped to take a couple of pictures.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w6" value="D" onclick="checkAnswer(this)"> Since the train was delayed, I read my book.</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Option C merges two distinct independent thoughts together with zero punctuation or coordinating conjunction markers.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">7. Complete the sentence: She handles complex client relationships ______ than anyone else on our regional team.</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w7" value="A"> more gracefully</label></li>
-                            <li class="option-item"><label><input type="radio" name="w7" value="B" data-correct="true"> more skillfully</label></li>
-                            <li class="option-item"><label><input type="radio" name="w7" value="C"> good</label></li>
-                            <li class="option-item"><label><input type="radio" name="w7" value="D"> baddest</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: The comparative adverb forms like "more skillfully" or "more gracefully" modify how an action is performed compared to another person.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">7. Complete the modifier string: She handles complex client relationships ______ than anyone else on our regional team.</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w7" value="A" onclick="checkAnswer(this)"> more gracefully</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w7" value="B" onclick="checkAnswer(this)"> more skillfully</label></li>
+                        <li class="option-item"><label><input type="radio" name="w7" value="C" onclick="checkAnswer(this)"> good</label></li>
+                        <li class="option-item"><label><input type="radio" name="w7" value="D" onclick="checkAnswer(this)"> baddest</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Comparative expressions contrasting clear active actions require a modifier form like "more skillfully."</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">8. Identify the option that features a pronoun tracking reference error.</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w8" value="A"> The dog wagged its tail when the family returned home.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w8" value="B" data-correct="true"> When a student travels abroad, they should keep track of their passport at all times.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w8" value="C"> The players celebrated their victory with the coaching staff.</label></li>
-                            <li class="option-item"><label><input type="radio" name="w8" value="D"> Each applicant must submit his or her resume before the deadline.</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Standard singular nouns should maintain matching singular singular structures, though singular "they/their" is increasingly accepted; traditional grammar structures test for absolute structural clarity.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">8. Identify the selection featuring an ambiguous tracking pronoun error.</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w8" value="A" onclick="checkAnswer(this)"> The dog wagged its tail when the family returned home.</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w8" value="B" onclick="checkAnswer(this)"> When a student travels abroad, they should keep track of their passport at all times.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w8" value="C" onclick="checkAnswer(this)"> The players celebrated their victory with the coaching staff.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w8" value="D" onclick="checkAnswer(this)"> Each applicant must submit his or her resume before the deadline.</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Traditional prescriptive metrics examine structural singular nouns to verify complete match formatting across non-plural descriptors.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">9. Choose the word that signifies a cause-and-effect relationship transition: The scientific team lost funding for their initiative; ______, the research trial was suspended immediately.</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w9" value="A"> furthermore</label></li>
-                            <li class="option-item"><label><input type="radio" name="w9" value="B"> similarly</label></li>
-                            <li class="option-item"><label><input type="radio" name="w9" value="C" data-correct="true"> consequently</label></li>
-                            <li class="option-item"><label><input type="radio" name="w9" value="D"> conversely</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: "Consequently" means as a result, which perfectly fits the logical causal relationship between losing funding and suspending the trial.</div>
-                    </div>
+                <div class="question-block">
+                    <p class="question-text">9. Pick the logical causal indicator link: The scientific team lost funding for their initiative; ______, the research trial was suspended immediately.</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w9" value="A" onclick="checkAnswer(this)"> furthermore</label></li>
+                        <li class="option-item"><label><input type="radio" name="w9" value="B" onclick="checkAnswer(this)"> similarly</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w9" value="C" onclick="checkAnswer(this)"> consequently</label></li>
+                        <li class="option-item"><label><input type="radio" name="w9" value="D" onclick="checkAnswer(this)"> conversely</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: "Consequently" models cause-to-effect transitions, establishing that the cancellation resulted directly from missing funds.</div>
+                </div>
 
-                    <div class="question-block">
-                        <p class="question-text">10. Which word is misspelled in the following line: "The architecture team recommended making a temporary accommodation to preserve the cemetery access corridor."</p>
-                        <ul class="options-list">
-                            <li class="option-item"><label><input type="radio" name="w10" value="A"> architecture</label></li>
-                            <li class="option-item"><label><input type="radio" name="w10" value="B"> temporary</label></li>
-                            <li class="option-item"><label><input type="radio" name="w10" value="C"> accommodation</label></li>
-                            <li class="option-item"><label><input type="radio" name="w10" value="D" data-correct="true"> All words are spelled correctly</label></li>
-                        </ul>
-                        <div class="explanation">Explanation: Architecture, temporary, accommodation, and cemetery are all spelled completely correctly in the provided sentence.</div>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Submit Writing Quiz</button>
-                </form>
-                <div id="results-writing" class="results-box"></div>
+                <div class="question-block">
+                    <p class="question-text">10. Find the exact spelling typo hidden below:</p>
+                    <ul class="options-list">
+                        <li class="option-item"><label><input type="radio" name="w10" value="A" onclick="checkAnswer(this)"> The architecture team recommended making a temporary accommodation.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w10" value="B" onclick="checkAnswer(this)"> We need to check the cemetery access corridors.</label></li>
+                        <li class="option-item"><label><input type="radio" name="w10" value="C" onclick="checkAnswer(this)"> I need an immediate baseline confirmation.</label></li>
+                        <li class="option-item correct-answer"><label><input type="radio" name="w10" value="D" onclick="checkAnswer(this)"> All options are spelled completely correctly.</label></li>
+                    </ul>
+                    <div class="explanation-box">Explanation: Architecture, temporary, accommodation, cemetery, and corridor represent complete spelling compliance profiles.</div>
+                </div>
             </div>
+        </section>
 
+        <section id="contact">
+            <h2>Schedule a Diagnostic Consultation</h2>
+            <p style="margin-bottom: 1.5rem; text-align: center;">Ready to boost your student's test metrics? Send a tracking inquiry below to plan your diagnostic roadmap.</p>
+            <form class="contact-form" action="https://formspree.io/f/xoqorora" method="POST">
+                <div class="form-group">
+                    <label for="name">Parent or Student Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="_replyto" required placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Target Academic Area:</label>
+                    <input type="text" id="subject" name="subject" placeholder="e.g., Digital SAT Prep, Algebra I, Geometry">
+                </div>
+                <div class="form-group">
+                    <label for="message">Detailed Goals / Scheduling Needs:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Tell me about your student's needs and current tracking timelines..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit-contact">Submit Inquiry Form</button>
+            </form>
         </section>
     </div>
 
@@ -677,55 +764,44 @@
 
     <script>
         function switchSubject(subject) {
-            // Hide all panels
             document.querySelectorAll('.subject-panel').forEach(panel => {
                 panel.classList.remove('active');
             });
-            // Deactivate all buttons
             document.querySelectorAll('.subject-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Activate current panel and button
             document.getElementById('panel-' + subject).classList.add('active');
             event.target.classList.add('active');
         }
 
-        function gradeQuiz(event, subject) {
-            event.preventDefault();
-            const form = document.getElementById('form-' + subject);
-            const resultsBox = document.getElementById('results-' + subject);
-            const totalQuestions = 10;
-            let score = 0;
+        function checkAnswer(radioInput) {
+            // Get the parent question block container element
+            const questionBlock = radioInput.closest('.question-block');
+            const items = questionBlock.querySelectorAll('.option-item');
+            
+            // Lock inputs inside this current block to avoid clicking changing evaluation states
+            questionBlock.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.disabled = true;
+            });
 
-            // Simple checking logic checking for custom attributes
-            const checkedInputs = form.querySelectorAll('input[type="radio"]:checked');
-            checkedInputs.forEach(input => {
-                if (input.hasAttribute('data-correct')) {
-                    score++;
+            items.forEach(item => {
+                const radio = item.querySelector('input[type="radio"]');
+                
+                if (item.classList.contains('correct-answer')) {
+                    // Turn correct answer options green
+                    item.classList.add('correct-choice');
+                } else if (radio.checked) {
+                    // If user checked an item lacking correct classes, color it red
+                    item.classList.add('incorrect-choice');
                 }
             });
 
-            // Reveal explanations for all questions in the active form
-            form.querySelectorAll('.explanation').forEach(exp => {
-                exp.style.display = 'block';
-            });
-
-            // Set styling configurations based on score outcomes
-            resultsBox.style.display = 'block';
-            const percentage = (score / totalQuestions) * 100;
-            
-            if (percentage >= 70) {
-                resultsBox.style.backgroundColor = '#d1fae5';
-                resultsBox.style.color = '#065f46';
-                resultsBox.innerHTML = `<strong>Great Work!</strong> You scored ${score} out of ${totalQuestions} (${percentage}%). Step-by-step explanations are now revealed above.`;
-            } else {
-                resultsBox.style.backgroundColor = '#fee2e2';
-                resultsBox.style.color = '#991b1b';
-                resultsBox.innerHTML = `<strong>Keep Practicing!</strong> You scored ${score} out of ${totalQuestions} (${percentage}%). Review the full diagnostic answers below to improve your structural score.`;
+            // Reveal explanation immediately after clicking tracking items
+            const expBox = questionBlock.querySelector('.explanation-box');
+            if (expBox) {
+                expBox.style.display = 'block';
             }
-            
-            resultsBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     </script>
 </body>

@@ -232,7 +232,6 @@
             background-color: #f1f5f9;
         }
 
-        /* Interactive grading classes applied dynamically via JS */
         .option-item.correct-choice label {
             background-color: var(--success-light) !important;
             border-color: var(--success) !important;
@@ -364,7 +363,7 @@
                 <div class="card">
                     <h3>Digital SAT Math Hacks</h3>
                     <ul class="tips-list">
-                        <li><strong>Circle Equations:</strong> Always convert expressions into standard form, (x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup>, by completing the square for x and y. This instantly reveals the exact center coordinates (h, k) and the true radius value r.</li>
+                        <li><strong>Circle Equations:</strong> Always convert expressions into standard form, (x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup>, by completing the square for x and y terms. This instantly reveals the exact center coordinates (h, k) and the true radius value r.</li>
                         <li><strong>Desmos Advantage:</strong> For system of equations questions, graph them instantly to find intersection coordinates instead of solving long variables algebraically.</li>
                         <li><strong>Exponent Rule Tracking:</strong> When multiplying identical bases, add the exponents together. When raising a power to a power, multiply the exponents.</li>
                     </ul>
@@ -379,7 +378,6 @@
                 </div>
             </div>
         </section>
-
         <section id="practice">
             <h2>Interactive Diagnostic Modules</h2>
             <p style="margin-bottom: 1.5rem;">Click on any option to immediately test your response. The system will auto-grade your choice instantly and reveal strategic explanations.</p>
@@ -618,8 +616,6 @@
                     <div class="explanation-box">Explanation: The structural style relies on objective definitions and scientific cause structures, maintaining an informative tone.</div>
                 </div>
             </div>
-
-            <!-- WRITING PANEL -->
             <div id="panel-writing" class="subject-panel">
                 <div class="question-block">
                     <p class="question-text">1. Choose the proper pronoun: The team members argued that ______ project proposal was chosen because it was the most realistic option.</p>
@@ -712,7 +708,8 @@
                 <div class="question-block">
                     <p class="question-text">9. Pick the logical causal indicator link: The scientific team lost funding for their initiative; ______, the research trial was suspended immediately.</p>
                     <ul class="options-list">
-                        <li class="option-item"><label><input type="radio" name="w9" value="A" onclick="checkAnswer(this)"> furthermore</label></li>
+                        <li class="option-item">
+                         <label><input type="radio" name="w9" value="A" onclick="checkAnswer(this)"> furthermore</label></li>
                         <li class="option-item"><label><input type="radio" name="w9" value="B" onclick="checkAnswer(this)"> similarly</label></li>
                         <li class="option-item correct-answer"><label><input type="radio" name="w9" value="C" onclick="checkAnswer(this)"> consequently</label></li>
                         <li class="option-item"><label><input type="radio" name="w9" value="D" onclick="checkAnswer(this)"> conversely</label></li>
@@ -736,6 +733,7 @@
         <section id="contact">
             <h2>Schedule a Diagnostic Consultation</h2>
             <p style="margin-bottom: 1.5rem; text-align: center;">Ready to boost your student's test metrics? Send a tracking inquiry below to plan your diagnostic roadmap.</p>
+            
             <form class="contact-form" action="https://formspree.io/f/xoqorora" method="POST">
                 <div class="form-group">
                     <label for="name">Parent or Student Name:</label>
@@ -755,6 +753,7 @@
                 </div>
                 <button type="submit" class="btn-submit-contact">Submit Inquiry Form</button>
             </form>
+            
         </section>
     </div>
 
@@ -776,11 +775,9 @@
         }
 
         function checkAnswer(radioInput) {
-            // Get the parent question block container element
             const questionBlock = radioInput.closest('.question-block');
             const items = questionBlock.querySelectorAll('.option-item');
             
-            // Lock inputs inside this current block to avoid clicking changing evaluation states
             questionBlock.querySelectorAll('input[type="radio"]').forEach(input => {
                 input.disabled = true;
             });
@@ -789,15 +786,12 @@
                 const radio = item.querySelector('input[type="radio"]');
                 
                 if (item.classList.contains('correct-answer')) {
-                    // Turn correct answer options green
                     item.classList.add('correct-choice');
                 } else if (radio.checked) {
-                    // If user checked an item lacking correct classes, color it red
                     item.classList.add('incorrect-choice');
                 }
             });
 
-            // Reveal explanation immediately after clicking tracking items
             const expBox = questionBlock.querySelector('.explanation-box');
             if (expBox) {
                 expBox.style.display = 'block';
@@ -805,4 +799,4 @@
         }
     </script>
 </body>
-</html>
+</html>   

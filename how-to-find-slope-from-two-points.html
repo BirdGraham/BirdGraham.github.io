@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>How to Find Slope from Two Points | Math Mastery Tutoring</title>
+  <meta name="description" content="Learn how to find the slope of a line from two points using the slope formula. Step-by-step examples, positive vs. negative slope, and common mistakes to avoid." />
+  <meta name="keywords" content="how to find slope from two points, slope formula, rise over run, slope of a line, algebra slope, slope intercept form, how to calculate slope" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Kristen Graham, Math Mastery Tutoring" />
+  <link rel="canonical" href="https://birdgraham.github.io/how-to-find-slope-from-two-points.html" />
+
+  <meta property="og:title" content="How to Find Slope from Two Points | Math Mastery Tutoring" />
+  <meta property="og:description" content="Learn the slope formula with step-by-step examples, worked problems, and common mistakes to avoid." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://birdgraham.github.io/how-to-find-slope-from-two-points.html" />
+  <meta property="og:site_name" content="Math Mastery Tutoring" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Find Slope from Two Points",
+    "description": "Learn how to find the slope of a line from two points using the slope formula.",
+    "author": { "@type": "Person", "name": "Kristen Graham" },
+    "publisher": { "@type": "Organization", "name": "Math Mastery Tutoring", "url": "https://birdgraham.github.io/" },
+    "mainEntityOfPage": "https://birdgraham.github.io/how-to-find-slope-from-two-points.html"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --gold: #c9973a;
+      --gold-light: #e8b85c;
+      --cream: #faf7f2;
+      --warm-gray: #8a8078;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+    .topnav { background: var(--navy); padding: 18px 60px; display: flex; align-items: center; justify-content: space-between; }
+    .topnav .brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; text-decoration: none; }
+    .topnav a.back { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none; letter-spacing: 0.05em; }
+    .topnav a.back:hover { color: var(--gold); }
+
+    .article-hero { background: var(--navy); padding: 70px 60px 60px; }
+    .article-hero .breadcrumb { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .article-hero .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .article-hero .topic-badge { display: inline-block; background: rgba(201,151,58,0.15); border: 1px solid rgba(201,151,58,0.4); color: var(--gold); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 22px; }
+    .article-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); line-height: 1.15; max-width: 780px; margin-bottom: 20px; }
+    .article-hero h1 span { color: var(--gold); }
+    .article-hero .subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 620px; line-height: 1.7; }
+
+    .content-wrap { max-width: 820px; margin: 0 auto; padding: 70px 40px 90px; }
+    .content-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--navy); margin: 52px 0 18px; }
+    .content-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin: 36px 0 12px; }
+    .content-wrap p { font-size: 1.02rem; line-height: 1.85; color: #3a3530; margin-bottom: 18px; }
+    .content-wrap ul, .content-wrap ol { padding-left: 22px; margin-bottom: 18px; }
+    .content-wrap li { font-size: 1rem; line-height: 1.8; color: #3a3530; margin-bottom: 8px; }
+
+    /* FORMULA HIGHLIGHT */
+    .formula-feature {
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 40px 44px;
+      margin: 36px 0;
+      text-align: center;
+    }
+    .formula-feature .f-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 18px; }
+    .formula-feature .f-formula { font-size: 1.5rem; color: var(--white); margin-bottom: 16px; }
+    .formula-feature .f-words { font-size: 0.95rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+
+    .step-block { background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 4px 4px 0; padding: 28px 32px; margin: 28px 0; }
+    .step-block .step-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+    .step-block p { margin-bottom: 10px; }
+    .step-block p:last-child { margin-bottom: 0; }
+
+    .example-box { background: var(--navy); border-radius: 6px; padding: 36px 40px; margin: 40px 0; color: var(--white); }
+    .example-box .ex-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; }
+    .example-box h3 { color: var(--white); margin: 0 0 20px; font-size: 1.1rem; }
+    .example-box p { color: rgba(255,255,255,0.8); margin-bottom: 14px; font-size: 0.98rem; }
+    .example-box .ex-step { background: rgba(255,255,255,0.06); border-radius: 4px; padding: 16px 20px; margin: 14px 0; color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7; }
+    .example-box .ex-step strong { color: var(--gold-light); }
+
+    /* SLOPE TYPES GRID */
+    .slope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 28px 0; }
+    .slope-card { background: var(--white); border-radius: 4px; padding: 22px 24px; border-top: 3px solid var(--gold); }
+    .slope-card h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 8px; }
+    .slope-card p { font-size: 0.9rem; color: #555; line-height: 1.65; margin: 0; }
+    .slope-card .slope-symbol { font-size: 1.6rem; font-family: 'Playfair Display', serif; color: var(--gold); display: block; margin-bottom: 8px; }
+
+    .mistake-box { background: #fff8f0; border: 1.5px solid #e8c07a; border-radius: 6px; padding: 28px 32px; margin: 32px 0; }
+    .mistake-box .mistake-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #b8720a; font-weight: 600; margin-bottom: 12px; }
+    .mistake-box p { color: #5a3d10; margin-bottom: 10px; }
+    .mistake-box p:last-child { margin-bottom: 0; }
+
+    .cta-section { background: var(--navy); border-radius: 8px; padding: 52px 48px; margin: 60px 0 0; text-align: center; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.9rem; margin-bottom: 14px; }
+    .cta-section p { color: rgba(255,255,255,0.65); font-size: 1rem; max-width: 460px; margin: 0 auto 32px; line-height: 1.7; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 600; font-size: 0.95rem; padding: 16px 36px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.2s; margin: 6px; }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .cta-btn.outline { background: transparent; border: 2px solid rgba(201,151,58,0.5); color: var(--gold); }
+    .cta-btn.outline:hover { border-color: var(--gold); background: rgba(201,151,58,0.08); }
+
+    .related { margin-top: 60px; padding-top: 40px; border-top: 1px solid #e8e0d5; }
+    .related h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px; }
+    .related-links { display: flex; flex-direction: column; gap: 12px; }
+    .related-links a { color: var(--navy); font-size: 0.97rem; text-decoration: none; padding: 14px 20px; background: var(--white); border-radius: 4px; border-left: 3px solid var(--gold); transition: background 0.15s; }
+    .related-links a:hover { background: #f5f0e8; }
+
+    footer { background: #070f18; color: rgba(255,255,255,0.4); text-align: center; padding: 28px; font-size: 0.82rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+    mjx-container { font-size: 1em !important; }
+
+    @media (max-width: 700px) {
+      .topnav { padding: 16px 24px; }
+      .article-hero { padding: 50px 24px 44px; }
+      .content-wrap { padding: 48px 20px 70px; }
+      .example-box { padding: 26px 22px; }
+      .cta-section { padding: 40px 24px; }
+      .slope-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="https://birdgraham.github.io/" class="brand">Math Mastery Tutoring</a>
+  <a href="https://birdgraham.github.io/" class="back">← Back to Home</a>
+</nav>
+
+<div class="article-hero">
+  <div class="breadcrumb"><a href="https://birdgraham.github.io/">Home</a> &nbsp;/&nbsp; Algebra I</div>
+  <div class="topic-badge">Algebra I · Linear Functions</div>
+  <h1>How to Find <span>Slope</span> from Two Points</h1>
+  <p class="subtitle">The slope formula, explained from scratch. Includes four worked examples covering positive, negative, zero, and undefined slopes, plus the mistakes that trip students up every time.</p>
+</div>
+
+<div class="content-wrap">
+
+  <h2>What Is Slope?</h2>
+  <p>Slope measures how steep a line is. More precisely, it measures how much the \(y\)-value changes for every one unit increase in the \(x\)-value. A line going steeply uphill has a large positive slope. A line going downhill has a negative slope. A flat horizontal line has a slope of zero.</p>
+  <p>You'll see slope written as \(m\) in math — it shows up in the slope-intercept form of a line: \(y = mx + b\).</p>
+
+  <h2>The Slope Formula</h2>
+  <p>Given any two points on a line — call them \((x_1, y_1)\) and \((x_2, y_2)\) — the slope is:</p>
+
+  <div class="formula-feature">
+    <div class="f-label">The Slope Formula</div>
+    <div class="f-formula">\[m = \frac{y_2 - y_1}{x_2 - x_1}\]</div>
+    <div class="f-words">Rise over Run &nbsp;·&nbsp; Change in y over Change in x</div>
+  </div>
+
+  <p>The numerator \((y_2 - y_1)\) is called the <strong>rise</strong> — how far the line moves up or down. The denominator \((x_2 - x_1)\) is the <strong>run</strong> — how far the line moves left or right. That's where "rise over run" comes from.</p>
+
+  <h2>How to Use It: Step by Step</h2>
+
+  <div class="step-block">
+    <div class="step-label">Step 1</div>
+    <p><strong>Label your two points.</strong> Assign one point as \((x_1, y_1)\) and the other as \((x_2, y_2)\). It doesn't matter which point you call "1" and which you call "2" — as long as you stay consistent.</p>
+  </div>
+
+  <div class="step-block">
+    <div class="step-label">Step 2</div>
+    <p><strong>Subtract the \(y\)-values (rise).</strong> Calculate \(y_2 - y_1\). This is your numerator.</p>
+  </div>
+
+  <div class="step-block">
+    <div class="step-label">Step 3</div>
+    <p><strong>Subtract the \(x\)-values in the same order (run).</strong> Calculate \(x_2 - x_1\). This is your denominator. Use the same order as Step 2 — second minus first.</p>
+  </div>
+
+  <div class="step-block">
+    <div class="step-label">Step 4</div>
+    <p><strong>Divide and simplify.</strong> Divide the rise by the run. Simplify the fraction if possible. The result is your slope \(m\).</p>
+  </div>
+
+  <h2>Worked Examples</h2>
+
+  <div class="example-box">
+    <div class="ex-label">Example 1 — Positive Slope</div>
+    <h3>Find the slope of the line through \((1, 3)\) and \((4, 9)\).</h3>
+
+    <div class="ex-step">
+      <strong>Step 1 — Label the points.</strong><br>
+      \((x_1, y_1) = (1, 3)\) &nbsp;and&nbsp; \((x_2, y_2) = (4, 9)\)
+    </div>
+    <div class="ex-step">
+      <strong>Steps 2–4 — Apply the formula.</strong><br>
+      \(m = \dfrac{9 - 3}{4 - 1} = \dfrac{6}{3} = 2\)<br><br>
+      The slope is \(2\). For every 1 unit you move right, the line rises 2 units.
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label">Example 2 — Negative Slope</div>
+    <h3>Find the slope of the line through \((2, 7)\) and \((5, 1)\).</h3>
+
+    <div class="ex-step">
+      <strong>Steps 1–4 — Apply the formula.</strong><br>
+      \(m = \dfrac{1 - 7}{5 - 2} = \dfrac{-6}{3} = -2\)<br><br>
+      The slope is \(-2\). The line goes downhill — for every 1 unit right, it drops 2 units.
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label">Example 3 — Zero Slope</div>
+    <h3>Find the slope of the line through \((-3, 4)\) and \((5, 4)\).</h3>
+
+    <div class="ex-step">
+      <strong>Steps 1–4 — Apply the formula.</strong><br>
+      \(m = \dfrac{4 - 4}{5 - (-3)} = \dfrac{0}{8} = 0\)<br><br>
+      The slope is \(0\). Both points have the same \(y\)-value, so the line is perfectly horizontal. A slope of zero always means a horizontal line.
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label">Example 4 — Undefined Slope</div>
+    <h3>Find the slope of the line through \((3, 1)\) and \((3, 8)\).</h3>
+
+    <div class="ex-step">
+      <strong>Steps 1–4 — Apply the formula.</strong><br>
+      \(m = \dfrac{8 - 1}{3 - 3} = \dfrac{7}{0}\)<br><br>
+      The slope is <em>undefined</em>. Division by zero is undefined in math. This happens whenever both points have the same \(x\)-value — the line is perfectly vertical.
+    </div>
+  </div>
+
+  <h2>The Four Types of Slope at a Glance</h2>
+
+  <div class="slope-grid">
+    <div class="slope-card">
+      <span class="slope-symbol">↗</span>
+      <h4>Positive Slope</h4>
+      <p>Line goes up from left to right. \(m > 0\)</p>
+    </div>
+    <div class="slope-card">
+      <span class="slope-symbol">↘</span>
+      <h4>Negative Slope</h4>
+      <p>Line goes down from left to right. \(m < 0\)</p>
+    </div>
+    <div class="slope-card">
+      <span class="slope-symbol">→</span>
+      <h4>Zero Slope</h4>
+      <p>Horizontal line. \(m = 0\)</p>
+    </div>
+    <div class="slope-card">
+      <span class="slope-symbol">↕</span>
+      <h4>Undefined Slope</h4>
+      <p>Vertical line. Slope does not exist.</p>
+    </div>
+  </div>
+
+  <h2>What to Do with Slope Next</h2>
+  <p>Once you have the slope, you can write the equation of the line using <strong>point-slope form</strong>:</p>
+  <p style="padding-left: 1em;">\[y - y_1 = m(x - x_1)\]</p>
+  <p>Plug in your slope and either of the two original points, then simplify into slope-intercept form \(y = mx + b\). This is one of the most used skills in all of Algebra I and II.</p>
+
+  <div class="mistake-box">
+    <div class="mistake-label">Common Mistakes to Avoid</div>
+    <p><strong>Subtracting in opposite orders.</strong> The most common slope mistake: subtracting \(y\)-values as \(y_2 - y_1\) but then subtracting \(x\)-values as \(x_1 - x_2\) (reversed). Always subtract in the same order — second point minus first point — in both numerator and denominator.</p>
+    <p><strong>Confusing zero slope with undefined slope.</strong> "Zero slope" (horizontal line, \(m = 0\)) is not the same as "no slope" (vertical line, undefined). A horizontal line has a slope of exactly zero. A vertical line has a slope that does not exist.</p>
+    <p><strong>Putting the \(x\) difference on top.</strong> Slope is always \(\dfrac{\text{rise}}{\text{run}} = \dfrac{\Delta y}{\Delta x}\). The \(y\) values go on top, the \(x\) values on the bottom. Flipping it gives you the reciprocal of the slope, which is a completely different value.</p>
+    <p><strong>Not simplifying the fraction.</strong> \(\dfrac{4}{6}\) and \(\dfrac{2}{3}\) are the same slope, but your answer should always be in simplest form.</p>
+  </div>
+
+  <div class="cta-section">
+    <h2>Still Fuzzy on Slope?</h2>
+    <p>A 30-minute session clears up slope, point-slope form, and slope-intercept form for good. Book a free consultation and get started today.</p>
+    <a href="https://birdgraham.github.io/#enroll" class="cta-btn">Book Free Consultation</a>
+    <a href="https://birdgraham.github.io/#study" class="cta-btn outline">Try Practice Problems</a>
+  </div>
+
+  <div class="related">
+    <h3>Related Topics</h3>
+    <div class="related-links">
+      <a href="how-to-solve-systems-of-equations-by-substitution.html">How to Solve Systems of Equations by Substitution →</a>
+      <a href="how-to-solve-systems-of-inequalities.html">How to Solve Systems of Inequalities →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; Math Mastery Tutoring. All Rights Reserved. | <a href="https://birdgraham.github.io/">Math Mastery Tutoring</a></p>
+</footer>
+
+</body>
+</html>

@@ -76,15 +76,15 @@
 
   <style>
     :root {
-      --navy: #0d1b2a;
-      --gold: #c9973a;
-      --gold-light: #e8b85c;
-      --cream: #faf7f2;
-      --warm-gray: #8a8078;
+      --navy: #1b4f8f;
+      --gold: #f28c28;
+      --gold-light: #ffb454;
+      --cream: #f3f7fc;
+      --warm-gray: #6b7785;
       --white: #ffffff;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: #1f2933; overflow-x: hidden; }
 
     .hero {
       background: var(--navy);
@@ -100,7 +100,7 @@
       position: absolute;
       width: 600px; height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,151,58,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(242,140,40,0.15) 0%, transparent 70%);
       top: -100px; right: 100px;
       pointer-events: none;
     }
@@ -131,7 +131,7 @@
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); color: var(--white); line-height: 1.1; margin-bottom: 24px; }
     .hero h1 span { color: var(--gold); }
     .hero p { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 480px; margin-bottom: 40px; }
-    .price-tag { display: inline-flex; align-items: baseline; gap: 4px; background: rgba(201,151,58,0.12); border: 1px solid rgba(201,151,58,0.4); border-radius: 4px; padding: 10px 20px; margin-bottom: 32px; width: fit-content; }
+    .price-tag { display: inline-flex; align-items: baseline; gap: 4px; background: rgba(242,140,40,0.12); border: 1px solid rgba(242,140,40,0.4); border-radius: 4px; padding: 10px 20px; margin-bottom: 32px; width: fit-content; }
     .price-tag .dollar { font-size: 1.1rem; color: var(--gold); font-weight: 500; }
     .price-tag .amount { font-size: 2.2rem; color: var(--gold); font-family: 'Playfair Display', serif; font-weight: 700; }
     .price-tag .unit { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-left: 4px; }
@@ -141,7 +141,7 @@
     .stats { background: var(--gold); padding: 28px 80px; display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; }
     .stat { text-align: center; }
     .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--navy); }
-    .stat-label { font-size: 0.78rem; font-weight: 500; color: rgba(13,27,42,0.7); letter-spacing: 0.08em; text-transform: uppercase; }
+    .stat-label { font-size: 0.78rem; font-weight: 500; color: rgba(20,30,45,0.8); letter-spacing: 0.08em; text-transform: uppercase; }
 
     section { padding: 90px 80px; }
     .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 12px; }
@@ -173,7 +173,7 @@
     .study { background: var(--white); }
     .study .section-title { margin-bottom: 16px; }
     .study-intro { font-size: 1rem; color: #555; margin-bottom: 48px; max-width: 640px; }
-    .tab-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; border-bottom: 2px solid #f0ece5; padding-bottom: 0; }
+    .tab-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; border-bottom: 2px solid #e3e9f1; padding-bottom: 0; }
     .tab-btn { background: none; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500; color: var(--warm-gray); cursor: pointer; padding: 10px 18px; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.2s, border-color 0.2s; letter-spacing: 0.04em; }
     .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
     .tab-btn:hover { color: var(--navy); }
@@ -186,7 +186,7 @@
     .q-options { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .q-options li { display: flex; align-items: flex-start; gap: 12px; }
     .q-options button { background: var(--white); border: 1.5px solid #ddd; border-radius: 4px; padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #333; cursor: pointer; text-align: left; width: 100%; transition: border-color 0.15s, background 0.15s; line-height: 1.6; }
-    .q-options button:hover { border-color: var(--gold); background: #fffbf4; }
+    .q-options button:hover { border-color: var(--gold); background: #fff6ec; }
     .q-options button.correct { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; font-weight: 500; }
     .q-options button.wrong { background: #fdecea; border-color: #e53935; color: #7f0000; }
     .q-options button.show-correct { background: #e8f5e9; border-color: #4caf50; }
@@ -195,7 +195,7 @@
     .q-explanation.visible { display: block; }
     .q-explanation strong { color: var(--gold-light); }
     .study-score { margin-top: 32px; text-align: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); }
-    .score-bar { height: 8px; background: #f0ece5; border-radius: 4px; margin: 12px auto; max-width: 400px; overflow: hidden; }
+    .score-bar { height: 8px; background: #e3e9f1; border-radius: 4px; margin: 12px auto; max-width: 400px; overflow: hidden; }
     .score-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 0.6s ease; width: 0%; }
 
     .enroll { background: var(--navy); color: var(--white); }
@@ -211,7 +211,7 @@
     .submit-btn { grid-column: 1 / -1; background: var(--gold); color: var(--navy); border: none; padding: 18px; border-radius: 3px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.06em; cursor: pointer; transition: background 0.2s, transform 0.2s; }
     .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
     .form-note { grid-column: 1 / -1; font-size: 0.8rem; color: rgba(255,255,255,0.35); text-align: center; }
-    #form-success { display: none; background: rgba(201,151,58,0.15); border: 1px solid var(--gold); border-radius: 4px; padding: 24px; text-align: center; margin-top: 20px; color: var(--gold-light); font-size: 1.05rem; }
+    #form-success { display: none; background: rgba(242,140,40,0.15); border: 1px solid var(--gold); border-radius: 4px; padding: 24px; text-align: center; margin-top: 20px; color: var(--gold-light); font-size: 1.05rem; }
 
     /* FREE GUIDES SECTION */
     .guides { background: var(--cream); }
@@ -240,7 +240,7 @@
     .guide-card p { font-size: 0.88rem; color: #666; line-height: 1.65; margin: 0; }
     .guide-card .guide-arrow { display: inline-block; margin-top: 16px; font-size: 0.85rem; color: var(--gold); font-weight: 500; }
 
-    footer { background: #070f18; color: rgba(255,255,255,0.4); text-align: center; padding: 30px; font-size: 0.82rem; }
+    footer { background: #12305a; color: rgba(255,255,255,0.4); text-align: center; padding: 30px; font-size: 0.82rem; }
     footer a { color: var(--gold); text-decoration: none; }
 
     mjx-container { font-size: 1em !important; }
@@ -365,7 +365,7 @@
     <div class="service-card">
       <div class="service-icon">🏛️</div>
       <h3>College Admissions Coaching</h3>
-      <p>College list building, application timelines, Common App and supplemental essays, activities, and interviews. <a href="college-admissions-guide.html">Read our free college admissions guide &rarr;</a></p>
+      <p>College list building, application timelines, Common App and supplemental essays, activities, and interviews.</p>
     </div>
   </div>
 </section>
@@ -445,13 +445,6 @@
   <p class="guides-intro">Stuck on a specific topic? These step-by-step guides break down the most common math concepts students struggle with, from Algebra I all the way through Calculus. Pick your topic and get clear, worked examples right now.</p>
   <div class="guides-grid">
 
-    <a href="college-admissions-guide.html" class="guide-card">
-      <div class="guide-subject">College Admissions</div>
-      <h3>How to Get Into Top Colleges (Including the Ivy League)</h3>
-      <p>A grade-by-grade timeline, test strategy, essay tips, and the common mistakes to avoid.</p>
-      <span class="guide-arrow">Read the guide →</span>
-    </a>
-
     <a href="how-to-solve-systems-of-inequalities.html" class="guide-card">
       <div class="guide-subject">Algebra II</div>
       <h3>How to Solve Systems of Inequalities</h3>
@@ -509,12 +502,12 @@
   <div class="section-label">Common Questions</div>
   <h2 class="section-title">Frequently Asked Questions</h2>
   <div style="max-width: 780px;">
-    <div style="margin-bottom: 32px; border-bottom: 1px solid #e8e0d5; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">What grade levels do you tutor?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">All of them! Math Mastery Tutoring works with students from kindergarten all the way through college, including adults returning to school after a long break.</p></div>
-    <div style="margin-bottom: 32px; border-bottom: 1px solid #e8e0d5; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">What subjects do you cover?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Math from elementary through calculus (AP and college-level), English and writing, SAT, ACT, and ISEE prep, Regents exam prep in all subjects, and college admissions coaching.</p></div>
-    <div style="margin-bottom: 32px; border-bottom: 1px solid #e8e0d5; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">Do you help with college admissions and essays?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Yes. We help with building your college list, planning your timeline, brainstorming and revising Common App and supplemental essays, and preparing for interviews. See our <a href="college-admissions-guide.html">free college admissions guide</a>. No one can guarantee admission to a highly selective school, but we help students build the strongest application they can.</p></div>
-    <div style="margin-bottom: 32px; border-bottom: 1px solid #e8e0d5; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">How much does tutoring cost?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Sessions are <strong>$45 per hour</strong>. Your first consultation is completely free.</p></div>
-    <div style="margin-bottom: 32px; border-bottom: 1px solid #e8e0d5; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">How do online sessions work?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">All sessions are 100% online using screen sharing and a virtual whiteboard. No commute, no hassle.</p></div>
-    <div style="margin-bottom: 32px; border-bottom: 1px solid #e8e0d5; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">How do I get started?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Fill out the form above to book a free consultation. We'll connect within 24 hours to schedule a first session.</p></div>
+    <div style="margin-bottom: 32px; border-bottom: 1px solid #dde4ee; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">What grade levels do you tutor?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">All of them! Math Mastery Tutoring works with students from kindergarten all the way through college, including adults returning to school after a long break.</p></div>
+    <div style="margin-bottom: 32px; border-bottom: 1px solid #dde4ee; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">What subjects do you cover?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Math from elementary through calculus (AP and college-level), English and writing, SAT, ACT, and ISEE prep, Regents exam prep in all subjects, and college admissions coaching.</p></div>
+    <div style="margin-bottom: 32px; border-bottom: 1px solid #dde4ee; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">Do you help with college admissions and essays?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Yes. We help with building your college list, planning your timeline, brainstorming and revising Common App and supplemental essays, and preparing for interviews. No one can guarantee admission to a highly selective school, but we help students build the strongest application they can.</p></div>
+    <div style="margin-bottom: 32px; border-bottom: 1px solid #dde4ee; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">How much does tutoring cost?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Sessions are <strong>$45 per hour</strong>. Your first consultation is completely free.</p></div>
+    <div style="margin-bottom: 32px; border-bottom: 1px solid #dde4ee; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">How do online sessions work?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">All sessions are 100% online using screen sharing and a virtual whiteboard. No commute, no hassle.</p></div>
+    <div style="margin-bottom: 32px; border-bottom: 1px solid #dde4ee; padding-bottom: 28px;"><h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin-bottom:10px; color:var(--navy);">How do I get started?</h3><p style="font-size:0.97rem; color:#555; line-height:1.8;">Fill out the form above to book a free consultation. We'll connect within 24 hours to schedule a first session.</p></div>
   </div>
 </section>
 
